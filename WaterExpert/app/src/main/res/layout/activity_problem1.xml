@@ -138,7 +138,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Turbudity NTU Max"
+                    android:text="Turbudity NTU"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -194,7 +194,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Total Dissolved Solids Mg/l Max"
+                    android:text="Total Dissolved Solids Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -222,7 +222,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Total Hardness Mg/l CaCo3 Max"
+                    android:text="Total Hardness Mg/l CaCo3"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -250,7 +250,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Total Alkalinityas calcium Carvonate Mg/l Max"
+                    android:text="Total Alkalinityas calcium Carvonate Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -278,7 +278,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Iron Mg/l Max"
+                    android:text="Iron Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -306,7 +306,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Chloride Mg/l Max"
+                    android:text="Chloride Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -334,7 +334,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Free Resudual Chlorine Mg/l Max"
+                    android:text="Free Resudual Chlorine Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -362,7 +362,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Sulphate Mg/l Max"
+                    android:text="Sulphate Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -390,7 +390,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Sulphide Mg/l Max"
+                    android:text="Sulphide Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -418,7 +418,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Nitrate Mg/l Max"
+                    android:text="Nitrate Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -446,7 +446,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Flouride Mg/l Max"
+                    android:text="Flouride Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -474,7 +474,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Calcium Mg/l Max"
+                    android:text="Calcium Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -502,7 +502,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Copper Mg/l Max"
+                    android:text="Copper Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -530,7 +530,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Magnesium Mg/l Max"
+                    android:text="Magnesium Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -558,7 +558,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Manganese Mg/l Max"
+                    android:text="Manganese Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -586,7 +586,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Mercury Mg/l Max"
+                    android:text="Mercury Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -614,7 +614,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Codtrium Mg/l Max"
+                    android:text="Codtrium Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -642,7 +642,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Selenium Mg/l Max"
+                    android:text="Selenium Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -670,7 +670,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Total Aesenic Mg/l Max"
+                    android:text="Total Aesenic Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -698,7 +698,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Cyanide Mg/l Max"
+                    android:text="Cyanide Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -726,7 +726,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Lead Mg/l Max"
+                    android:text="Lead Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -754,7 +754,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Zinc Mg/l Max"
+                    android:text="Zinc Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -782,7 +782,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Total Chromium Mg/l Max"
+                    android:text="Total Chromium Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -810,7 +810,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Aluminium Mg/l Max"
+                    android:text="Aluminium Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -838,7 +838,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Boron Mg/l Max"
+                    android:text="Boron Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -866,7 +866,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Ammonia  Mg/l Max"
+                    android:text="Ammonia  Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -894,7 +894,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Barium Mg/l Max"
+                    android:text="Barium Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -922,7 +922,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Silver Mg/l Max"
+                    android:text="Silver Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -950,7 +950,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Molybdenum Mg/l Max"
+                    android:text="Molybdenum Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -978,7 +978,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Nikel Mg/l Max"
+                    android:text="Nikel Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -1006,7 +1006,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Phenolic Compound Mg/l Max"
+                    android:text="Phenolic Compound Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -1034,7 +1034,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Polychlorinated biphents Mg/l Max"
+                    android:text="Polychlorinated biphents Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -1062,7 +1062,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Polynuclear aromatic Hydrocarbons Mg/l Max"
+                    android:text="Polynuclear aromatic Hydrocarbons Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -1090,7 +1090,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Anionic Detergents Mg/l Max"
+                    android:text="Anionic Detergents Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -1118,7 +1118,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Chloramines Mg/l Max"
+                    android:text="Chloramines Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -1174,7 +1174,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Bromolom Mg/l Max"
+                    android:text="Bromolom Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -1202,7 +1202,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Dibromochioromethane Mg/l Max"
+                    android:text="Dibromochioromethane Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -1230,7 +1230,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Bromodichiromethane Mg/l Max"
+                    android:text="Bromodichiromethane Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"
@@ -1258,7 +1258,7 @@
                     android:textAlignment="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="Chriorotom Mg/l Max"
+                    android:text="Chriorotom Mg/l"
                     android:layout_weight="1"/>
                 <EditText
                    android:inputType="numberDecimal"

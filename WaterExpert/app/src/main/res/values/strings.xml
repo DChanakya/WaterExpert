@@ -5,7 +5,7 @@
     <string name="to_check_the_potability_of_water_based_upon_water_quality_index">To Check the Potability of Water based upon Water Quality Index</string>
     <string name="to_know_the_informantion_about_any_parameter">To Know the Informantion about Any Parameter</string>
     <string name="through_this_we_can_check_the_units_minimum_and_maximum_range_values_and_their_effects_for_the_entered_parameter_value">Through this we can check the units, Minimum and Maximum Range values and their effects for the entered parameter value.</string>
-    <string name="_1_colour_hazen">Colour(Hazen) MOX</string>
+    <string name="_1_colour_hazen">Colour(Hazen)</string>
     <string-array name="source">
         <item>Source</item>
 

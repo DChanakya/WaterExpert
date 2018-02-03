@@ -131,7 +131,9 @@ public class Problem2 extends AppCompatActivity {
             }
 
         }
-        catch (IOException e){}
+        catch(IOException e){
+            e.printStackTrace();
+        }
 
 
     }
