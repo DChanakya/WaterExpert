@@ -22,4 +22,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this,Problem1.class);
         startActivity(i);
     }
+    public void button4(View v)
+    {
+        Intent i = new Intent(this,Problem4.class);
+        startActivity(i);
+    }
 }

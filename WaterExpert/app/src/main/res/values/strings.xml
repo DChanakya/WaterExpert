@@ -6,6 +6,9 @@
     <string name="to_know_the_informantion_about_any_parameter">To Know the Informantion about Any Parameter</string>
     <string name="through_this_we_can_check_the_units_minimum_and_maximum_range_values_and_their_effects_for_the_entered_parameter_value">Through this we can check the units, Minimum and Maximum Range values and their effects for the entered parameter value.</string>
     <string name="_1_colour_hazen">Colour(Hazen)</string>
+    <string name="submit">Submit</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="this_gives_the_information_based_on_the_parameter_of_water_quality">This Gives the Information Based on the Parameter of Water Quality</string>
     <string-array name="source">
         <item>Source</item>
 
@@ -45,6 +48,16 @@
         <item>Petroleum-Gasoline-Fuel-Sovent Odour</item>
         <item>Wet Dog Odour</item>
         <item>Sewage Odour</item>
+    </string-array>
+
+    <string-array name="parameters">
+        <item>Color</item>
+        <item>Odour</item>
+        <item>Turbudity</item>
+        <item>PH</item>
+        <item>Taste</item>
+        <item>Total dissolved solids</item>
+        <item>Total Hardness</item>
     </string-array>
 
     <string-array name="colour">
