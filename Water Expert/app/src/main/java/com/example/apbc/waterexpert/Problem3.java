@@ -61,8 +61,8 @@ public class Problem3 extends AppCompatActivity {
     }
     public void initialize() {
         t1 = (EditText) findViewById(R.id.problem3_editView1);
-        t2 = (EditText) findViewById(R.id.problem3_editView2);
-        t3 = (EditText) findViewById(R.id.problem3_editView3);
+//        t2 = (EditText) findViewById(R.id.problem3_editView2);
+//        t3 = (EditText) findViewById(R.id.problem3_editView3);
         t4 = (EditText) findViewById(R.id.problem3_editView4);
         t5 = (EditText) findViewById(R.id.problem3_editView5);
         t6 = (EditText) findViewById(R.id.problem3_editView6);
@@ -113,8 +113,8 @@ public class Problem3 extends AppCompatActivity {
     }
     public void read() {
         st1 = t1.getText().toString().trim();
-        st2 = t2.getText().toString().trim();
-        st3 = t3.getText().toString().trim();
+//        st2 = t2.getText().toString().trim();
+//        st3 = t3.getText().toString().trim();
         st4 = t4.getText().toString().trim();
         st5 = t5.getText().toString().trim();
         st6 = t6.getText().toString().trim();
@@ -164,8 +164,8 @@ public class Problem3 extends AppCompatActivity {
         dataEntryLayout.setVisibility(View.GONE);
         head.setText("Results".toUpperCase());
         calculate1();
-        calculate2();
-        calculate3();
+//        calculate2();
+//        calculate3();
         calculate4();
         calculate5();
         calculate6();
@@ -210,14 +210,14 @@ public class Problem3 extends AppCompatActivity {
         if(count>0)
         {
             summary.setVisibility(View.VISIBLE);
-            summary.setText("Your water is unfit for drinking");
+            summary.setText("Summary: Your water is unfit for drinking");
             causeText.setVisibility(View.VISIBLE);
 
         }
         else
         {
             summary.setVisibility(View.VISIBLE);
-            summary.setText("Your water is Safe for drinking");
+            summary.setText("Summary: Your water is Safe for drinking");
         }
     }
 
@@ -244,13 +244,7 @@ public class Problem3 extends AppCompatActivity {
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
-                count++; 
-                causeList.add(
-                new CauseListModel(
 
-                        "Color","1"
-                )
-        );
             }
 
              else if (i > 16) {
@@ -275,35 +269,35 @@ public class Problem3 extends AppCompatActivity {
     }
 
 
-    public void calculate2() {
-        if (!st2.isEmpty()) {
-            list.add(
-                    new ListModel(
-
-                            "Odour",st2,"4-16","Normal"
-                    )
-            );
-            customListAdapter.notifyDataSetChanged();
-
-        }
-
-
-    }
-
-    public void calculate3() {
-        if (!st3.isEmpty()) {
-            list.add(
-                    new ListModel(
-
-                            "Taste",st3,"4-16","Normal"
-                    )
-            );
-            customListAdapter.notifyDataSetChanged();
-
-        }
-
-
-    }
+//    public void calculate2() {
+//        if (!st2.isEmpty()) {
+//            list.add(
+//                    new ListModel(
+//
+//                            "Odour",st2,"4-16","Normal"
+//                    )
+//            );
+//            customListAdapter.notifyDataSetChanged();
+//
+//        }
+//
+//
+//    }
+//
+//    public void calculate3() {
+//        if (!st3.isEmpty()) {
+//            list.add(
+//                    new ListModel(
+//
+//                            "Taste",st3,"4-16","Normal"
+//                    )
+//            );
+//            customListAdapter.notifyDataSetChanged();
+//
+//        }
+//
+//
+//    }
     public void calculate4() {
         if (!st4.isEmpty()) {
             float i = Float.parseFloat(st4);
@@ -323,13 +317,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Turbudity NTU",String.valueOf(i),"1-5","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Turbudity","5"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
 
             } else if (i > 5) {
                 list.add(
@@ -370,13 +358,7 @@ public class Problem3 extends AppCompatActivity {
                                 "PH Value",String.valueOf(i),"5.5-8.5","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "PH","4"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
 
             } else if (i > 8.5) {
                 list.add(
@@ -420,14 +402,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Total Dissolved Solids Mg/L",String.valueOf(i),"499-2001","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Total Dissolved Solids Mg/L","7"
-                )
-        );
-
+                customListAdapter.notifyDataSetChanged();
             } else if (i > 2000)
                 list.add(
                         new ListModel(
@@ -467,13 +442,7 @@ public class Problem3 extends AppCompatActivity {
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
-                count++;
-                causeList.add(
-                        new CauseListModel(
 
-                                "Total Hardness Mg/L", "30"
-                        )
-                );
             } else if (i > 600) {
                 list.add(
                         new ListModel(
@@ -513,13 +482,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Total Alkalinitiyas Calcium Carvonate Mg/L",String.valueOf(i),"200-600","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Total Alkalinitiyas Calcium Carvonate Mg/L","29"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             } else if (i > 600) {
                 list.add(
                         new ListModel(
@@ -578,13 +541,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Chloride Mg/L",String.valueOf(i),"250-1000","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Chloride","15"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else if(i>250)
             {
@@ -630,13 +587,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Free residual Chlorine Mg/L",String.valueOf(i),"250-1000","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Free residual Chlorine Mg/L","18"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -683,13 +634,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Sulphate Mg/L",String.valueOf(i),"250-1000","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Sulphate","27"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -735,7 +680,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Sulphide Mg/L",String.valueOf(i),"0.05","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
+                customListAdapter.notifyDataSetChanged();count++;
  causeList.add(
                 new CauseListModel(
 
@@ -807,13 +752,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Flouride Mg/L",String.valueOf(i),"1.0-1.5","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Flouride","17"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -859,13 +798,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Calcium Mg/L",String.valueOf(i),"75-200","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Calcium","13"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -911,13 +844,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Copper Mg/L",String.valueOf(i),"0.05-1.5","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Copper","16"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -963,13 +890,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Magneesium Mg/L",String.valueOf(i),"30-100","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Magneesium","20"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -1015,13 +936,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Manganeese Mg/L",String.valueOf(i),"0.1-0.3","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Manganeese","21"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -1176,13 +1091,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Total Aesenic  Mg/L",String.valueOf(i),"0.01-0.05","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Total Aesenic","41"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -1300,13 +1209,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Zinc Mg/L",String.valueOf(i),"5-15","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Zinc","31"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -1388,13 +1291,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Aluminium Mg/L",String.valueOf(i),"0.03-0.2","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Aluminium Mg/L","8"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -1440,13 +1337,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Boron Mg/L",String.valueOf(i),"0.5-1.0","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Boron","12"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
@@ -1779,13 +1670,7 @@ public class Problem3 extends AppCompatActivity {
                                 "Anionic Detergents Mg/L",String.valueOf(i),"0.2-1.0","Below the limit"
                         )
                 );
-                customListAdapter.notifyDataSetChanged();count++; 
- causeList.add(
-                new CauseListModel(
-
-                        "Anionic Detergents","10"
-                )
-        );
+                customListAdapter.notifyDataSetChanged();
             }
             else
             {
