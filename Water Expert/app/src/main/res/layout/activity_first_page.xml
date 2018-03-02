@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.apbc.waterexpert.FirstPage">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:paddingBottom="30dp"
+        android:scaleType="fitXY"
+
+        app:srcCompat="@drawable/banner2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/appDevelopers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:padding="15dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:id="@+id/bIdea"
+            android:text=""
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:padding="5dp"
+            android:paddingBottom="40dp"
+            android:scaleType="fitXY"
+
+            app:srcCompat="@drawable/clg_banner" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="25dp">
+
+
+            <Button
+            android:background="@color/colorPrimary"
+            android:textColor="@color/blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:padding="15dp"
+            android:onClick="mainProblem"
+            android:id="@+id/appDevelopers111"
+            android:text="Proceed"
+            android:textSize="18sp" />
+        </LinearLayout>
+        <android.support.v4.widget.Space
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
+</android.support.constraint.ConstraintLayout>

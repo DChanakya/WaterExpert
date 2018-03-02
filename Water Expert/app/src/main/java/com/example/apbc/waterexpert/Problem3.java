@@ -231,7 +231,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Color",String.valueOf(i),"4-16","Normal"
+                                "Color",String.valueOf(i),"5-15","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -240,7 +240,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                               "Color",String.valueOf(i),"4-16","Below the limit"
+                               "Color",String.valueOf(i),"5-15","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -251,7 +251,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Color",String.valueOf(i),"4-16","Above the limit"
+                                "Color",String.valueOf(i),"5-15","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -391,7 +391,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Dissolved Solids Mg/L",String.valueOf(i),"499-2001","Below the limit"
+                                "Total Dissolved Solids Mg/L",String.valueOf(i),"500-2000","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -399,7 +399,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Dissolved Solids Mg/L",String.valueOf(i),"499-2001","Below the limit"
+                                "Total Dissolved Solids Mg/L",String.valueOf(i),"500-2000","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -407,7 +407,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Dissolved Solids Mg/L",String.valueOf(i),"499-2001","Above the limit"
+                                "Total Dissolved Solids Mg/L",String.valueOf(i),"500-2000","Above the limit"
                         )
                 );
             customListAdapter.notifyDataSetChanged();count++; 
@@ -503,16 +503,36 @@ public class Problem3 extends AppCompatActivity {
     }
     public void  calculate9()
     {
+
         if(!st9.isEmpty())
         {   float i = Float.parseFloat(st9);
 
-            list.add(
-                    new ListModel(
+            if(i>=0.3)
+            {
+                list.add(
+                        new ListModel(
 
-                            "Iron Mg/L",String.valueOf(i),"4-16","Below the limit"
-                    )
-            );
-            customListAdapter.notifyDataSetChanged();
+                                "Iron Mg/L",String.valueOf(i),"0.3","Normal"
+                        )
+                );
+                customListAdapter.notifyDataSetChanged();
+            }
+            else
+            {
+                list.add(
+                        new ListModel(
+
+                                "Iron Mg/L",String.valueOf(i),"0.3","Below the limit"
+                        )
+                );
+                customListAdapter.notifyDataSetChanged();count++;
+                causeList.add(
+                        new CauseListModel(
+
+                                "Iron","18"
+                        )
+                );
+            }
         }
 
 
@@ -584,7 +604,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Free residual Chlorine Mg/L",String.valueOf(i),"250-1000","Below the limit"
+                                "Free residual Chlorine Mg/L",String.valueOf(i),"0.2-1.0","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -631,7 +651,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Sulphate Mg/L",String.valueOf(i),"250-1000","Below the limit"
+                                "Sulphate Mg/L",String.valueOf(i),"250-400","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
