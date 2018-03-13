@@ -2,6 +2,8 @@ package com.example.apbc.waterexpert;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 public class Problem1 extends AppCompatActivity {
 
@@ -24,12 +27,25 @@ public class Problem1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problem1);
         initialize();
+        VideoView video = (VideoView) findViewById(R.id.problem1_video);
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.video;
+        video.setVideoURI(Uri.parse(path));
+        video.start();
+        video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
     }
-
+public void back(View v)
+{
+    startActivity(new Intent(this,MainActivity.class));
+}
     public void initialize() {
         t1 = (EditText) findViewById(R.id.editView1);
-        t2 = (Spinner) findViewById(R.id.odourSpin);
-        t3 = (Spinner) findViewById(R.id.tasteSpin);
+        //t2 = (Spinner) findViewById(R.id.odourSpin);
+        //t3 = (Spinner) findViewById(R.id.tasteSpin);
         t4 = (EditText) findViewById(R.id.editView4);
         t5 = (EditText) findViewById(R.id.editView5);
         t6 = (EditText) findViewById(R.id.editView6);
@@ -66,15 +82,15 @@ public class Problem1 extends AppCompatActivity {
         t37 = (EditText) findViewById(R.id.editView37);
         t38 = (EditText) findViewById(R.id.editView38);
         t39 = (EditText) findViewById(R.id.editView39);
-        t40 = (EditText) findViewById(R.id.editView40);
+//        t40 = (EditText) findViewById(R.id.editView40);
         t41 = (EditText) findViewById(R.id.editView41);
         t42 = (EditText) findViewById(R.id.editView42);
         t43 = (EditText) findViewById(R.id.editView43);
         t44 = (EditText) findViewById(R.id.editView44);
         ll1 = (LinearLayout) findViewById(R.id.colorlayout);
-        ll2 = (LinearLayout) findViewById(R.id.odourlayout);
-        ll3 = (LinearLayout) findViewById(R.id.tastelayout);
-        ll4 = (LinearLayout) findViewById(R.id.nitratelayout);
+//        ll2 = (LinearLayout) findViewById(R.id.odourlayout);
+//        ll3 = (LinearLayout) findViewById(R.id.tastelayout);
+        ll4 = (LinearLayout) findViewById(R.id.turbiditylayout);
         ll5 = (LinearLayout) findViewById(R.id.phlayout);
         ll6 = (LinearLayout) findViewById(R.id.solidslayout);
         ll7 = (LinearLayout) findViewById(R.id.hardnesslayout);
@@ -85,11 +101,11 @@ public class Problem1 extends AppCompatActivity {
         ll12 = (LinearLayout) findViewById(R.id.sulphatelayout);
         ll13 = (LinearLayout) findViewById(R.id.sulphidelayout);
         ll14 = (LinearLayout) findViewById(R.id.nitratelayout);
-        ll15 = (LinearLayout) findViewById(R.id.flouridelayout);
+        ll15 = (LinearLayout) findViewById(R.id.fluoridelayout);
         ll16 = (LinearLayout) findViewById(R.id.calciumlayout);
         ll17 = (LinearLayout) findViewById(R.id.copperlayout);
-        ll18 = (LinearLayout) findViewById(R.id.magneesiumlayout);
-        ll19 = (LinearLayout) findViewById(R.id.manganeeselayout);
+        ll18 = (LinearLayout) findViewById(R.id.magnesiumlayout);
+        ll19 = (LinearLayout) findViewById(R.id.manganeselayout);
         ll20 = (LinearLayout) findViewById(R.id.mercurylayout);
         ll21 = (LinearLayout) findViewById(R.id.cadmiumlayout);
         ll22 = (LinearLayout) findViewById(R.id.seleniumlayout);
@@ -104,22 +120,22 @@ public class Problem1 extends AppCompatActivity {
         ll31 = (LinearLayout) findViewById(R.id.bariumlayout);
         ll32 = (LinearLayout) findViewById(R.id.silverlayout);
         ll33 = (LinearLayout) findViewById(R.id.molybdenumlayout);
-        ll34 = (LinearLayout) findViewById(R.id.nikellayout);
+        ll34 = (LinearLayout) findViewById(R.id.nickellayout);
         ll35 = (LinearLayout) findViewById(R.id.phenollayout);
         ll36 = (LinearLayout) findViewById(R.id.polychlorinatedlayout);
         ll37 = (LinearLayout) findViewById(R.id.polynuclearlayout);
         ll38 = (LinearLayout) findViewById(R.id.anioniclayout);
         ll39 = (LinearLayout) findViewById(R.id.chloramineslayout);
-        ll40 = (LinearLayout) findViewById(R.id.trihalomethaneslayout);
-        ll41 = (LinearLayout) findViewById(R.id.bromolonlayout);
-        ll42 = (LinearLayout) findViewById(R.id.dibromochioromethanelayout);
-        ll43 = (LinearLayout) findViewById(R.id.bromodichirometanelayout);
-        ll44 = (LinearLayout) findViewById(R.id.chiorotomlayout);
+//        ll40 = (LinearLayout) findViewById(R.id.trihalomethaneslayout);
+        ll41 = (LinearLayout) findViewById(R.id.bromoformlayout);
+        ll42 = (LinearLayout) findViewById(R.id.dibromochloromethanelayout);
+        ll43 = (LinearLayout) findViewById(R.id.bromodichlorometanelayout);
+        ll44 = (LinearLayout) findViewById(R.id.chloroformlayout);
         dataEntryLayout = (LinearLayout) findViewById(R.id.dataEntryLayout);
         tt1 = (TextView) findViewById(R.id.colortext);
-        tt2 = (TextView) findViewById(R.id.odourtext);
-        tt3 = (TextView) findViewById(R.id.tastetext);
-        tt4 = (TextView) findViewById(R.id.turbuditytext);
+        //tt2 = (TextView) findViewById(R.id.odourtext);
+        //tt3 = (TextView) findViewById(R.id.tastetext);
+        tt4 = (TextView) findViewById(R.id.turbiditytext);
         tt5 = (TextView) findViewById(R.id.phtext);
         tt6 = (TextView) findViewById(R.id.solidstext);
         tt7 = (TextView) findViewById(R.id.hardnesstext);
@@ -130,11 +146,11 @@ public class Problem1 extends AppCompatActivity {
         tt12 = (TextView) findViewById(R.id.sulphatetext);
         tt13 = (TextView) findViewById(R.id.sulphidetext);
         tt14 = (TextView) findViewById(R.id.nitratetext);
-        tt15 = (TextView) findViewById(R.id.flouridetext);
+        tt15 = (TextView) findViewById(R.id.fluoridetext);
         tt16 = (TextView) findViewById(R.id.calciumtext);
         tt17 = (TextView) findViewById(R.id.coppertext);
-        tt18 = (TextView) findViewById(R.id.magneesiumtext);
-        tt19 = (TextView) findViewById(R.id.manganeesetext);
+        tt18 = (TextView) findViewById(R.id.magnesiumtext);
+        tt19 = (TextView) findViewById(R.id.manganesetext);
         tt20 = (TextView) findViewById(R.id.mercurytext);
         tt21 = (TextView) findViewById(R.id.cadmiumtext);
         tt22 = (TextView) findViewById(R.id.seleniumtext);
@@ -149,24 +165,24 @@ public class Problem1 extends AppCompatActivity {
         tt31 = (TextView) findViewById(R.id.bariumtext);
         tt32 = (TextView) findViewById(R.id.silvertext);
         tt33 = (TextView) findViewById(R.id.molybdenumtext);
-        tt34 = (TextView) findViewById(R.id.nikeltext);
+        tt34 = (TextView) findViewById(R.id.nickeltext);
         tt35 = (TextView) findViewById(R.id.phenoltext);
         tt36 = (TextView) findViewById(R.id.polynchlorinatedtext);
         tt37 = (TextView) findViewById(R.id.polynucleartext);
         tt38 = (TextView) findViewById(R.id.anionictext);
         tt39 = (TextView) findViewById(R.id.chloraminestext);
-        tt40 = (TextView) findViewById(R.id.trihalomethanestext);
-        tt41 = (TextView) findViewById(R.id.bromolontext);
-        tt42 = (TextView) findViewById(R.id.dibromochioromethanetext);
-        tt43 = (TextView) findViewById(R.id.bromodichirometanetext);
-        tt44 = (TextView) findViewById(R.id.chiorotomtext);
+//        tt40 = (TextView) findViewById(R.id.trihalomethanestext);
+        tt41 = (TextView) findViewById(R.id.bromoformtext);
+        tt42 = (TextView) findViewById(R.id.dibromochloromethanetext);
+        tt43 = (TextView) findViewById(R.id.bromodichlorometanetext);
+        tt44 = (TextView) findViewById(R.id.chloroformtext);
         head = (TextView) findViewById(R.id.problem1header);
     }
 
     public void read() {
         st1 = t1.getText().toString().trim();
-        st2 = t2.getSelectedItemPosition();
-        st3 = t3.getSelectedItemPosition();
+        //st2 = t2.getSelectedItemPosition();
+        //st3 = t3.getSelectedItemPosition();
         st4 = t4.getText().toString().trim();
         st5 = t5.getText().toString().trim();
         st6 = t6.getText().toString().trim();
@@ -203,7 +219,7 @@ public class Problem1 extends AppCompatActivity {
         st37 = t37.getText().toString().trim();
         st38 = t38.getText().toString().trim();
         st39 = t39.getText().toString().trim();
-        st40 = t40.getText().toString().trim();
+//        st40 = t40.getText().toString().trim();
         st41 = t41.getText().toString().trim();
         st42 = t42.getText().toString().trim();
         st43 = t43.getText().toString().trim();
@@ -217,8 +233,8 @@ public class Problem1 extends AppCompatActivity {
         dataEntryLayout.setVisibility(View.GONE);
         head.setText("Results".toUpperCase());
         calculate1();
-        calculate2();
-        calculate3();
+        //calculate2();
+        //calculate3();
         calculate4();
         calculate5();
         calculate6();
@@ -255,7 +271,7 @@ public class Problem1 extends AppCompatActivity {
         calculate37();
         calculate38();
         calculate39();
-        calculate40();
+//        calculate40();
         calculate41();
         calculate42();
         calculate43();
@@ -308,7 +324,7 @@ public class Problem1 extends AppCompatActivity {
 
     }
 
-    public void calculate2() {
+//    public void calculate2() {
 //        if (!st2.isEmpty()) {
 //            ll2.setVisibility(View.VISIBLE);
 //
@@ -330,51 +346,31 @@ public class Problem1 extends AppCompatActivity {
 //
 //        }
 
-    if(st2>0){
-     if(st2==1)
-     {
-         ll2.setVisibility(View.VISIBLE);
+//    if(st2>0){
+//     if(st2==1)
+//     {
+//         ll2.setVisibility(View.VISIBLE);
+//
+//            tt2.setText(Html.fromHtml("<p>\n" +
+//                    "\t\t\t------------------<br><br>" +
+//                    "" +
+//                    "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Odour</span><br><br>" +
+//                    "" +
+//                    "\t<strong>Units</strong>: No<br><br>" +
+//                    "" +
+//                    "\t<strong>limits</strong>: Agreeable<br><br>" +
+//                    "" +
+//                    "\t<strong>Entered Value:</strong>" + st2 + "<br><br>" +
+//                    "" +
+//                    "\t<strong>Results</strong>: Test&nbsp; Rotten egg odour is a result of decaying organic deposits.<br><br>" +
+//                    "" +
+//                    "\t\t\t------------------" +
+//                    "\t"));
+//     }
 
-            tt2.setText(Html.fromHtml("<p>\n" +
-                    "\t\t\t------------------<br><br>" +
-                    "" +
-                    "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Odour</span><br><br>" +
-                    "" +
-                    "\t<strong>Units</strong>: No<br><br>" +
-                    "" +
-                    "\t<strong>limits</strong>: Agreeable<br><br>" +
-                    "" +
-                    "\t<strong>Entered Value:</strong>" + st2 + "<br><br>" +
-                    "" +
-                    "\t<strong>Results</strong>: Test&nbsp; Rotten egg odour is a result of decaying organic deposits.<br><br>" +
-                    "" +
-                    "\t\t\t------------------" +
-                    "\t"));
-     }
-     if(st2==2){
-         ll2.setVisibility(View.VISIBLE);
+//}
 
-         tt2.setText(Html.fromHtml("<p>\n" +
-                 "\t\t\t------------------<br><br>" +
-                 "" +
-                 "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Odour</span><br><br>" +
-                 "" +
-                 "\t<strong>Units</strong>: No<br><br>" +
-                 "" +
-                 "\t<strong>limits</strong>: Agreeable<br><br>" +
-                 "" +
-                 "\t<strong>Entered Value:</strong>" + st2 + "<br><br>" +
-                 "" +
-                 "\t<strong>Results</strong>: Test&nbsp; Rotten egg odour is a result of decaying organic deposits.<br><br>" +
-                 "" +
-                 "\t\t\t------------------" +
-                 "\t"));
-     }
-
-    }
-    }
-
-    public void calculate3() {
+//    public void calculate3() {
 //        if (!st3.isEmpty()) {
 //            ll3.setVisibility(View.VISIBLE);
 //
@@ -395,50 +391,30 @@ public class Problem1 extends AppCompatActivity {
 //                    "\t"));
 //
 //        }
-        if(st3==1)
-        {
-            ll3.setVisibility(View.VISIBLE);
+//        if(st3==1)
+//        {
+//            ll3.setVisibility(View.VISIBLE);
+//
+//            tt3.setText(Html.fromHtml("<p>\n" +
+//                    "\t\t\t------------------<br><br>" +
+//                    "" +
+//                    "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Taste</span><br><br>" +
+//                    "" +
+//                    "\t<strong>Units</strong>: No<br><br>" +
+//                    "" +
+//                    "\t<strong>limits</strong>: Agreeable<br><br>" +
+//                    "" +
+//                    "\t<strong>Entered Value:</strong>" + st3 + "<br><br>" +
+//                    "" +
+//                    "\t<strong>Results</strong>: Test to be conducted only after safety has been established<br><br>" +
+//                    "" +
+//                    "\t\t\t------------------" +
+//                    "\t"));
+//
+//        }
 
-            tt3.setText(Html.fromHtml("<p>\n" +
-                    "\t\t\t------------------<br><br>" +
-                    "" +
-                    "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Taste</span><br><br>" +
-                    "" +
-                    "\t<strong>Units</strong>: No<br><br>" +
-                    "" +
-                    "\t<strong>limits</strong>: Agreeable<br><br>" +
-                    "" +
-                    "\t<strong>Entered Value:</strong>" + st3 + "<br><br>" +
-                    "" +
-                    "\t<strong>Results</strong>: Test to be conducted only after safety has been established<br><br>" +
-                    "" +
-                    "\t\t\t------------------" +
-                    "\t"));
 
-        }
-        if(st3==2)
-        {
-            ll3.setVisibility(View.VISIBLE);
-
-            tt3.setText(Html.fromHtml("<p>\n" +
-                    "\t\t\t------------------<br><br>" +
-                    "" +
-                    "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Taste</span><br><br>" +
-                    "" +
-                    "\t<strong>Units</strong>: No<br><br>" +
-                    "" +
-                    "\t<strong>limits</strong>: Agreeable<br><br>" +
-                    "" +
-                    "\t<strong>Entered Value:</strong>" + st3 + "<br><br>" +
-                    "" +
-                    "\t<strong>Results</strong>: Test to be conducted only after safety has been established<br><br>" +
-                    "" +
-                    "\t\t\t------------------" +
-                    "\t"));
-
-        }
-
-    }
+//    }
 
     public void calculate4() {
         if (!st4.isEmpty()) {
@@ -492,13 +468,14 @@ public class Problem1 extends AppCompatActivity {
 
 
         }
+
     }
 
     public void calculate5() {
         if (!st5.isEmpty()) {
             float i = Float.parseFloat(st5);
             ll5.setVisibility(View.VISIBLE);
-            if (i > 6.5 && i < 8.5) {
+            if (i>=6.5 && i<=8.5) {
 
                 tt5.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>" +
@@ -515,7 +492,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t\t\t------------------" +
                         "\t"));
-            } else if (i < 6.5) {
+            } else if (i<6.5) {
                 tt5.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>" +
                         "" +
@@ -527,12 +504,12 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
                         "" +
-                        "\t<strong>Results</strong>: It is under limit. Below 6.5 the water is Base.<br><br>" +
+                        "\t<strong>Results</strong>: It is under limit. Below 6.5 the water is Acid.<br><br>" +
                         "" +
                         "\t\t\t------------------" +
                         "\t"));
 
-            } else if (i > 8.5) {
+            } else if (i>8.5) {
                 tt5.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>" +
                         "" +
@@ -540,7 +517,7 @@ public class Problem1 extends AppCompatActivity {
                         "\t<strong>Units</strong>: NTU<br><br>" +
                         "\t<strong>limits</strong>: 1-5<<br><br>" +
                         "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
-                        "\t<strong>Results</strong>:Beyond limit.Above 8.5 the water is Acid.<br><br>" +
+                        "\t<strong>Results</strong>:Beyond limit.Above 8.5 the water is Base.<br><br>" +
                         "\t\t\t------------------" +
                         "\t"));
             }
@@ -556,15 +533,15 @@ public class Problem1 extends AppCompatActivity {
         if (!st6.isEmpty()) {
             float i = Float.parseFloat(st6);
             ll6.setVisibility(View.VISIBLE);
-            if (i > 499 && i < 2001) {
+            if (i>= 499 && i<= 2001) {
                 tt6.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>" +
                         "" +
                         "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Dissolved Solids</span><br><br>" +
                         "" +
-                        "\t<strong>Units</strong>: Mg/l (0.1) PPM<br><br>" +
+                        "\t<strong>Units</strong>: Mg/l <br><br>" +
                         "" +
-                        "\t<strong>limits</strong>: 500Mg/l to 2000Mg/l<br><br>" +
+                        "\t<strong>limits</strong>: 500 to 2000Mg/l<br><br>" +
                         "" +
                         "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
                         "" +
@@ -580,7 +557,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Units</strong>: Mg/l <br><br>" +
                         "" +
-                        "\t<strong>limits</strong>: 500Mg/l to 2000Mg/l<br><br>" +
+                        "\t<strong>limits</strong>: 500 to 2000Mg/l<br><br>" +
                         "" +
                         "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
                         "" +
@@ -597,11 +574,11 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Units</strong>: Mg/l <br><br>" +
                         "" +
-                        "\t<strong>limits</strong>: 500Mg/l to 2000Mg/l<br><br>" +
+                        "\t<strong>limits</strong>: 500 to 2000Mg/l<br><br>" +
                         "" +
                         "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
                         "" +
-                        "\t<strong>Results</strong>:Beyond limit.Above 2000 is Unacceptable for drinking<br><br>" +
+                        "\t<strong>Results</strong>:Beyond limit.Above 2000 it is Unacceptable for drinking<br><br>" +
                         "" +
                         "\t\t\t------------------" +
                         "\t"));
@@ -619,11 +596,11 @@ public class Problem1 extends AppCompatActivity {
                 tt7.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Hardness as CaCo3.]fz</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Hardness</span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 200Mg/l to 600Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 200 to 600Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
@@ -636,11 +613,11 @@ public class Problem1 extends AppCompatActivity {
                 tt7.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>" +
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Hardness as CaCo3.</span><br><br>" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Hardness</span><br><br>" +
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>" +
                         "" +
-                        "\t<strong>limits</strong>: 200Mg/l to 600Mg/l<br><br>" +
+                        "\t<strong>limits</strong>: 200 to 600Mg/l<br><br>" +
                         "" +
                         "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
                         "" +
@@ -654,11 +631,11 @@ public class Problem1 extends AppCompatActivity {
                 tt7.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Hardness as CaCo3.</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Hardness</span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 200Mg/l to 600Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 200 to 600Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
@@ -675,15 +652,15 @@ public class Problem1 extends AppCompatActivity {
         if (!st8.isEmpty()) {
             float i = Float.parseFloat(st8);
             ll8.setVisibility(View.VISIBLE);
-            if (i >= 200 && i <= 600) {
+            if (i>=200 && i<=600) {
                 tt8.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>" +
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Alkalinity as Calcium Carbonate.</span><br><br>" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Alkalinity</span><br><br>" +
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>" +
                         "" +
-                        "\t<strong>limits</strong>: 200Mg/l to 600Mg/l<br><br>" +
+                        "\t<strong>limits</strong>: 200 to 600Mg/l<br><br>" +
                         "" +
                         "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
                         "" +
@@ -695,11 +672,11 @@ public class Problem1 extends AppCompatActivity {
                 tt8.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>" +
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Alkalinityas Calcium Carbonate.</span><br><br>" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Alkalinity</span><br><br>" +
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>" +
                         "" +
-                        "\t<strong>limits</strong>: 200Mg/l to 600Mg/l<br><br>" +
+                        "\t<strong>limits</strong>: 200 to 600Mg/l<br><br>" +
                         "" +
                         "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
                         "" +
@@ -711,11 +688,11 @@ public class Problem1 extends AppCompatActivity {
                 tt8.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>" +
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Alkalinityas Calcium Carbonate.</span><br><br>" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Alkalinity.</span><br><br>" +
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>" +
                         "" +
-                        "\t<strong>limits</strong>: 200Mg/l to 600Mg/l<br><br>" +
+                        "\t<strong>limits</strong>: 200 to 600Mg/l<br><br>" +
                         "" +
                         "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
                         "" +
@@ -730,26 +707,46 @@ public class Problem1 extends AppCompatActivity {
     public void  calculate9()
     {
         if(!st9.isEmpty())
-        {   float i = Float.parseFloat(st9);
-            ll9.setVisibility(View.VISIBLE);
-            tt9.setText(Html.fromHtml("<p>\n" +
-                    "\t\t\t------------------<br><br>"+
-                    "" +
-                    "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Iron</span><br><br>"+
-                    "" +
-                    "\t<strong>Units</strong>:Mg/l<br><br>"+
-                    "" +
-                    "\t<strong>limits</strong>: 0.3 Mg/l to No Relaxation<br><br>"+
-                    "" +
-                    "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
-                    "" +
-                    "\t<strong>Results</strong>:It is Normal.Excess Iron causes Brackish color, rusty sediment, bitter or metallic taste, browngreen stains, iron bacteria, discolored beverages <br><br>"+
-                    "" +
-                    "\t\t\t------------------"+
-                    "\t"));
-
+        {
+            float i = Float.parseFloat(st9);
+            if(i>=0.3) {
+                ll9.setVisibility(View.VISIBLE);
+                tt9.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>" +
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Iron</span><br><br>" +
+                        "" +
+                        "\t<strong>Units</strong>:Mg/l<br><br>" +
+                        "" +
+                        "\t<strong>limits</strong>: 0.3 Mg/l to No Relaxation<br><br>" +
+                        "" +
+                        "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
+                        "" +
+                        "\t<strong>Results</strong>:It is Normal.Excess Iron causes Brackish color, rusty sediment, bitter or metallic taste, browngreen stains, iron bacteria, discolored beverages <br><br>" +
+                        "" +
+                        "\t\t\t------------------" +
+                        "\t"));
+            }
+            else
+            {
+                ll9.setVisibility(View.VISIBLE);
+                tt9.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>" +
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Iron</span><br><br>" +
+                        "" +
+                        "\t<strong>Units</strong>:Mg/l<br><br>" +
+                        "" +
+                        "\t<strong>limits</strong>: 0.3 Mg/l to No Relaxation<br><br>" +
+                        "" +
+                        "\t<strong>Entered Value:</strong>" + String.valueOf(i) + "<br><br>" +
+                        "" +
+                        "\t<strong>Results</strong>:It is under Limit.<br><br>" +
+                        "" +
+                        "\t\t\t------------------" +
+                        "\t"));
+            }
         }
-
 
     }
 
@@ -767,7 +764,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Units</strong>: Mg/l <br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 250Mg/l to 1000Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 250 to 1000Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
@@ -776,7 +773,7 @@ public class Problem1 extends AppCompatActivity {
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<250)
             {
                 tt10.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
@@ -785,11 +782,29 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 250Mg/l to 1000Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 250 to 1000Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: Below 250 is under Limit.\n Above 1000 it causes High blood pressure, salty taste, corroded pipes, fixtures and appliances, blackening and pitting of stainless steel<br><br>"+
+                        "\t<strong>Results</strong>: Below 250 it is under Limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>1000)
+            {
+                tt10.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Chloride</span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 250 to 1000Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Above 1000 it causes High blood pressure, salty taste, corroded pipes, fixtures and appliances, blackening and pitting of stainless steel<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -809,37 +824,56 @@ public class Problem1 extends AppCompatActivity {
                 tt11.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Free Residual Chlorine Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Free Residual Chlorine</span><br><br>"+
                         "" +
-                        "\t<strong>Units</strong>: Mg/lt<br><br>"+
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 0.2Mg/l to 1.0Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 0.2 to 1.0Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal.<br><br>"+
+                        "\t<strong>Results</strong>:It is Normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i>0.2)
             {
                 tt11.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Free Residual Chlorine Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Free Residual Chlorine </span><br><br>"+
                         "" +
-                        "\t<strong>Units</strong>: Mg/lt<br><br>"+
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 0.2Mg/l to 1.0Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 0.2 to 1.0Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: Below 0.2 is under limit.Excess free residual chlorine causes diarrheal diseases.<br><br>"+
+                        "\t<strong>Results</strong>: Below 0.2 is under limit.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
+            else if(i<1.0)
+            {
+                tt11.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Free Residual Chlorine</span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 0.2 to 1.0Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Excess free residual chlorine causes diarrheal diseases.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+
         }
 
 
@@ -855,33 +889,51 @@ public class Problem1 extends AppCompatActivity {
                 tt12.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Sulphate Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Sulphate</span><br><br>"+
                         "" +
-                        "\t<strong>Units</strong>: Mg/lt<br><br>"+
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 200Mg/l to 400Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 200 to 400Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: It is Normal.<br><br>"+
+                        "\t<strong>Results</strong>: It is Normal.It is acceptable for drinking<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<200)
             {
                 tt12.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Sulphate Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Sulphate</span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 200Mg/l to 400Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 200 to 400Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: Below 200 it is under limit. Above 400 it causes Bitter, medicinal taste, scaly deposits, corrosion, laxative effects,rotten-egg odor from hydrogen sulfide gas formation <br><br>"+
+                        "\t<strong>Results</strong>: Below 200 it is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>400)
+            {
+                tt12.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Sulphate</span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 200 to 400Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Above 400 it causes Bitter, medicinal taste, scaly deposits, corrosion, laxative effects,rotten-egg odor from hydrogen sulfide gas formation<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -901,7 +953,7 @@ public class Problem1 extends AppCompatActivity {
                 tt13.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Sulphide Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Sulphide</span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -919,7 +971,7 @@ public class Problem1 extends AppCompatActivity {
                 tt13.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Sulphide Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Sulphide</span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -947,7 +999,7 @@ public class Problem1 extends AppCompatActivity {
                 tt14.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Nitrate Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Nitrate</span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -993,33 +1045,51 @@ public class Problem1 extends AppCompatActivity {
                 tt15.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Flouride Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Fluoride</span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 1.0 Mg/l to 1.5 Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 1.0 to 1.5 Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: It is normal.<br><br>"+
+                        "\t<strong>Results</strong>: It is Normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<1.0)
             {
                 tt15.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Flouride Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Fluoride Mg/l Max</span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 1.0 Mg/l to 1.5 Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 1.0 to 1.5 Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:Below 1.0 it is under limit\n Above 1.5 it causes Brownish discoloration of teeth, bone damage.<br><br>"+
+                        "\t<strong>Results</strong>:Below 1.0 it is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>1.5)
+            {
+                tt15.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size: 20px;\">Fluoride</span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 1.0 to 1.5 Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Above 1.5 it causes Brownish discoloration of teeth, bone damage.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1039,33 +1109,51 @@ public class Problem1 extends AppCompatActivity {
                 tt16.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Calcium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Calcium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 75 Mg/l to 200 Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 75 to 200 Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: It is Normal.<br><br>"+
+                        "\t<strong>Results</strong>: It is Normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<75)
             {
                 tt16.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Calcium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Calcium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 75 Mg/l to 200 Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 75  to 200 Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:Below 75 it is under limit\n Above 200 it causes Poor lathering and deterioration of the quality of  clothes; incrustation in pipes; scale formation.<br><br>"+
+                        "\t<strong>Results</strong>:Below 75 it is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>200)
+            {
+                tt16.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Calcium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 75  to 200 Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Above 200 it causes Poor lathering and deterioration of the quality of  clothes; incrustation in pipes; scale formation.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1085,33 +1173,51 @@ public class Problem1 extends AppCompatActivity {
                 tt17.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Copper&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Copper&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 0.05 Mg/l to 1.5 Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 0.05 to 1.5 Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: It is Normal.<br><br>"+
+                        "\t<strong>Results</strong>: It is Normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if (i<0.05)
             {
                 tt17.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Copper&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Copper&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 0.05 Mg/l to 1.5 Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 0.05 to 1.5 Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: Below 0.05 it is under limit\n Above 1.5 it causes Liver damage; mucosal irritation, renal damage and depression; restricts growth of aquatic plants.<br><br>"+
+                        "\t<strong>Results</strong>: Below 0.05 it is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if (i>1.5)
+            {
+                tt17.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Copper&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 0.05 to 1.5 Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Above 1.5 it causes Liver damage; mucosal irritation, renal damage and depression; restricts growth of aquatic plants.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1131,25 +1237,25 @@ public class Problem1 extends AppCompatActivity {
                 tt18.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Magnesium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Magnesium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 30 Mg/l to 100 Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 30 to 100 Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is Normal.<br><br>"+
+                        "\t<strong>Results</strong>:It is Normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<30)
             {
                 tt18.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Magnesium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Magnesium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1157,7 +1263,25 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:Below 30 It is under limit\n Above 100 it causesPoor lathering and deterioration of clothes; with sulfate laxative.<br><br>"+
+                        "\t<strong>Results</strong>:Below 30 it is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>100)
+            {
+                tt18.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Magnesium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 30 to 100 Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Above 100 it causes Poor lathering and deterioration of clothes; with sulfate laxative.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1177,20 +1301,38 @@ public class Problem1 extends AppCompatActivity {
                 tt19.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Manganese&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Manganese&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 0.1 Mg/l to 0.3 Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 0.1  to 0.3 Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: It is Normal.<br><br>"+
+                        "\t<strong>Results</strong>: It is Normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<0.1)
+            {
+                tt19.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Manganese&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 0.1 to 0.3 Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Below 0.1 It is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>0.3)
             {
                 tt19.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
@@ -1199,11 +1341,11 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 0.1 Mg/l to 0.3 Mg/l<br><br>"+
+                        "\t<strong>limits</strong>: 0.1 to 0.3 Mg/l<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:Below 0.1 It is under limit\n Above 0.3 it causes Poor taste, color and turbidity; staining; black slime.<br><br>"+
+                        "\t<strong>Results</strong>:Above 0.3 it causes Poor taste, color and turbidity; staining; black slime.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1223,11 +1365,11 @@ public class Problem1 extends AppCompatActivity {
                 tt20.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Mercury</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Mercury</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 0.001 Mg/l to No Relaxation<br><br>"+
+                        "\t<strong>limits</strong>: 0.001  to No Relaxation<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
@@ -1269,7 +1411,7 @@ public class Problem1 extends AppCompatActivity {
                 tt21.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Cadmium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Cadmium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1287,7 +1429,7 @@ public class Problem1 extends AppCompatActivity {
                 tt21.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Cadmium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Cadmium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1315,7 +1457,7 @@ public class Problem1 extends AppCompatActivity {
                 tt22.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Selenium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Selenium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1333,7 +1475,7 @@ public class Problem1 extends AppCompatActivity {
                 tt22.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Selenium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Selenium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1361,7 +1503,7 @@ public class Problem1 extends AppCompatActivity {
                 tt23.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Arsenic&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Arsenic&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1369,17 +1511,17 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is Normal.<br><br>"+
+                        "\t<strong>Results</strong>:It is Normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<0.01)
             {
                 tt23.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Arsenic&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Arsenic&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1387,7 +1529,25 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:Below 0.01 it is under limit\n Excess arsenic causes Toxic bio-accumulation; central nervous system affected carcinogenic diseases .<br><br>"+
+                        "\t<strong>Results</strong>:Below 0.01 it is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>0.05)
+            {
+                tt23.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Arsenic&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 0.01 Mg/l to 0.05 Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Excess arsenic causes Toxic bio-accumulation; central nervous system affected carcinogenic diseases .<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1407,7 +1567,7 @@ public class Problem1 extends AppCompatActivity {
                 tt24.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Cyanide&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Cyanide&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1425,7 +1585,7 @@ public class Problem1 extends AppCompatActivity {
                 tt24.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Cyanide&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Cyanide&nbsp;</span><span style=\"font-size: 20px;\"</span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1453,7 +1613,7 @@ public class Problem1 extends AppCompatActivity {
                 tt25.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Lead</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Lead</span><span style=\"font-size: 20px;\"</span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1461,7 +1621,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: It is normal. excess lead causes Reduces mental capacity (mental retardation), interference with  kidney and neurological functions, hearing loss, blood disorders, hypertension, death at high levels.<br><br>"+
+                        "\t<strong>Results</strong>: It is normal.Excess lead causes Reduces mental capacity (mental retardation), interference with  kidney and neurological functions, hearing loss, blood disorders, hypertension, death at high levels.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1471,7 +1631,7 @@ public class Problem1 extends AppCompatActivity {
                 tt25.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Lead</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Lead</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1499,7 +1659,7 @@ public class Problem1 extends AppCompatActivity {
                 tt26.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Zinc&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Zinc&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1507,17 +1667,17 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is Normal.<br><br>"+
+                        "\t<strong>Results</strong>:It is Normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<5)
             {
                 tt26.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Zinc&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Zinc&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1525,7 +1685,25 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:Below 5 it is under limit\n Above 15 it causes Metallic taste.<br><br>"+
+                        "\t<strong>Results</strong>:Below 5 it is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>15)
+            {
+                tt26.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Zinc&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 5 Mg/l to 15 Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Above 15 it causes Metallic taste.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1545,7 +1723,7 @@ public class Problem1 extends AppCompatActivity {
                 tt27.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Chromium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Chromium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1563,7 +1741,7 @@ public class Problem1 extends AppCompatActivity {
                 tt27.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Chromium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Total Chromium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1591,7 +1769,7 @@ public class Problem1 extends AppCompatActivity {
                 tt28.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Aluminium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Aluminium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1599,17 +1777,17 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal.<br><br>"+
+                        "\t<strong>Results</strong>:It is normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<0.03)
             {
                 tt28.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Aluminium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Aluminium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1617,7 +1795,25 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:Below 0.03 it is under limit, \n Above 0.2 it causes Neurological disorders and Alzheimer's disease .<br><br>"+
+                        "\t<strong>Results</strong>:Below 0.03 it is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>0.2)
+            {
+                tt28.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Aluminium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 0.03 Mg/l to 0.2 Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Above 0.2 it causes Neurological disorders and Alzheimer's disease .<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1637,7 +1833,7 @@ public class Problem1 extends AppCompatActivity {
                 tt29.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Boron&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Boron&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1645,17 +1841,17 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal.<br><br>"+
+                        "\t<strong>Results</strong>:It is Normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<0.5)
             {
                 tt29.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Boron&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Boron&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1663,7 +1859,25 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:below 0.5 it is under limit.\n Above 1.0 it causes several health effects may occur and there is a risk for testacles and unborn babies.<br><br>"+
+                        "\t<strong>Results</strong>:Below 0.5 it is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>1.0)
+            {
+                tt29.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Boron&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 0.5 Mg/l to 1.0 Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Above 1.0 it causes several health effects may occur and there is a risk for testacles and unborn babies.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1683,7 +1897,7 @@ public class Problem1 extends AppCompatActivity {
                 tt30.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Ammonia</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Ammonia</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1691,7 +1905,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal. excess ammonia causes loss of equilibrium ,convulsions,coma and death.<br><br>"+
+                        "\t<strong>Results</strong>:It is normal. Excess ammonia causes loss of equilibrium ,convulsions,coma and death.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1701,7 +1915,7 @@ public class Problem1 extends AppCompatActivity {
                 tt30.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Ammonia</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Ammonia</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1729,7 +1943,7 @@ public class Problem1 extends AppCompatActivity {
                 tt31.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Barium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Barium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1737,7 +1951,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>: it is normal. excess barium causes blood pressure, gastrointestinal problems.<br><br>"+
+                        "\t<strong>Results</strong>: It is Normal.Excess barium causes blood pressure, gastrointestinal problems.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1747,7 +1961,7 @@ public class Problem1 extends AppCompatActivity {
                 tt31.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Borium&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Barium&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1775,7 +1989,7 @@ public class Problem1 extends AppCompatActivity {
                 tt32.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Silver&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Silver&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1783,7 +1997,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal. Excess silver causes breathing problem, throat irritation, stomach pain.<br><br>"+
+                        "\t<strong>Results</strong>:It is Normal. Excess silver causes breathing problem, throat irritation, stomach pain.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1793,7 +2007,7 @@ public class Problem1 extends AppCompatActivity {
                 tt32.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Silver&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Silver&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1801,7 +2015,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:it is under limit.<br><br>"+
+                        "\t<strong>Results</strong>:It is under limit.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1821,7 +2035,7 @@ public class Problem1 extends AppCompatActivity {
                 tt33.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Molybdenum&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Molybdenum&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1839,7 +2053,7 @@ public class Problem1 extends AppCompatActivity {
                 tt33.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Molybdenum&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Molybdenum&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1867,7 +2081,7 @@ public class Problem1 extends AppCompatActivity {
                 tt34.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Nickel&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Nickel&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1875,7 +2089,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal. excess nickel causes dermatitis, when inhaled it is highly carcinogenic.<br><br>"+
+                        "\t<strong>Results</strong>:It is normal.Excess nickel causes dermatitis, when inhaled it is highly carcinogenic.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1885,7 +2099,7 @@ public class Problem1 extends AppCompatActivity {
                 tt34.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Nickel&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Nickel&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1913,7 +2127,7 @@ public class Problem1 extends AppCompatActivity {
                 tt35.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Phenolic Compound (C6H50H)&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Phenolic Compound (C6H50H)&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1921,7 +2135,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Remarks</strong>:It is normal.excess phenolic compounds causes objectionable taste and colour.<br><br>"+
+                        "\t<strong>Remarks</strong>:It is normal.Excess phenolic compounds causes objectionable taste and colour.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1931,7 +2145,7 @@ public class Problem1 extends AppCompatActivity {
                 tt35.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Phenolic Compound (C6H50H)&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Phenolic Compound (C6H50H)&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1959,7 +2173,7 @@ public class Problem1 extends AppCompatActivity {
                 tt36.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">PolyChlorinated biphenlys&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">PolyChlorinated biphenlys&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -1967,7 +2181,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal. excess causes cancer.<br><br>"+
+                        "\t<strong>Results</strong>:It is normal. Excess causes cancer.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -1977,7 +2191,7 @@ public class Problem1 extends AppCompatActivity {
                 tt36.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">PolyChlorinated biphenyls&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">PolyChlorinated biphenyls&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2005,7 +2219,7 @@ public class Problem1 extends AppCompatActivity {
                 tt37.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">PolyNuclear Aromatic Hydrocarbons&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">PolyNuclear Aromatic Hydrocarbons&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2013,7 +2227,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal.excess causes eye irritation and vomitings and gastro intestinals cancers.<br><br>"+
+                        "\t<strong>Results</strong>:It is normal.Excess causes eye irritation and vomitings and gastro intestinals cancers.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -2023,7 +2237,7 @@ public class Problem1 extends AppCompatActivity {
                 tt37.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">PolyNuclear Aromatic Hydrocarbons&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">PolyNuclear Aromatic Hydrocarbons&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2051,7 +2265,7 @@ public class Problem1 extends AppCompatActivity {
                 tt38.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Anionic Detergents&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Anionic Detergents&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2059,17 +2273,17 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal.<br><br>"+
+                        "\t<strong>Results</strong>:It is normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
             }
-            else
+            else if(i<0.2)
             {
                 tt38.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Anionic Detergents&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Anionic Detergents&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2077,7 +2291,25 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:Below 0.2 it is under limit\n Above 1.0 water becomes toxic, weight loss, depression , lack of energy,skin and nervous system toxicity.<br><br>"+
+                        "\t<strong>Results</strong>:Below 0.2 it is under limit.<br><br>"+
+                        "" +
+                        "\t\t\t------------------"+
+                        "\t"));
+            }
+            else if(i>1.0)
+            {
+                tt38.setText(Html.fromHtml("<p>\n" +
+                        "\t\t\t------------------<br><br>"+
+                        "" +
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Anionic Detergents&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
+                        "" +
+                        "\t<strong>Units</strong>: Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>limits</strong>: 0.2 Mg/l to 1.0 Mg/l<br><br>"+
+                        "" +
+                        "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
+                        "" +
+                        "\t<strong>Results</strong>:Above 1.0 water becomes toxic, weight loss, depression , lack of energy,skin and nervous system toxicity.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -2097,7 +2329,7 @@ public class Problem1 extends AppCompatActivity {
                 tt39.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Chloromines&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Chloromines&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2105,7 +2337,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal. Excess chloromines effects cells genetic material and produce high toxic human carcinogenic substances.<br><br>"+
+                        "\t<strong>Results</strong>:It is Normal. Excess chloromines effects cells genetic material and produce high toxic human carcinogenic substances.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -2115,7 +2347,7 @@ public class Problem1 extends AppCompatActivity {
                 tt39.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Chloromines&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Chloromines&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2133,24 +2365,24 @@ public class Problem1 extends AppCompatActivity {
 
     }
 
-    public void  calculate40()
-    {
-        tt40.setText(Html.fromHtml("<p>\n" +
-                "\t\t\t------------------<br><br>"+
-                "" +
-                "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Trihalomethanes</span><br><br>"+
-                "" +
-                "\t<strong>Units</strong>: Mg/l<br><br>"+
-                "" +
-                "\t<strong>Entered Value:</strong>"+ st40 +"<br><br>"+
-                "" +
-                "\t<strong>Results</strong>:It is Normal.<br><br>"+
-                "" +
-                "\t\t\t------------------"+
-                "\t"));
-
-
-    }
+//    public void  calculate40()
+//    {
+//        tt40.setText(Html.fromHtml("<p>\n" +
+//                "\t\t\t------------------<br><br>"+
+//                "" +
+//                "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Trihalomethanes</span><br><br>"+
+//                "" +
+//                "\t<strong>Units</strong>: Mg/l<br><br>"+
+//                "" +
+//                "\t<strong>Entered Value:</strong>"+ st40 +"<br><br>"+
+//                "" +
+//                "\t<strong>Results</strong>:It is Normal.<br><br>"+
+//                "" +
+//                "\t\t\t------------------"+
+//                "\t"));
+//
+//
+// }
 
     public void  calculate41()
     {
@@ -2162,7 +2394,7 @@ public class Problem1 extends AppCompatActivity {
                 tt41.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Bromoform&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Bromoform&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2170,7 +2402,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal. excess bromoform causes liver and kidney diseases.<br><br>"+
+                        "\t<strong>Results</strong>:It is Normal.Excess bromoform causes liver and kidney diseases.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -2180,7 +2412,7 @@ public class Problem1 extends AppCompatActivity {
                 tt41.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Bromolom&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Bromolom&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2208,7 +2440,7 @@ public class Problem1 extends AppCompatActivity {
                 tt42.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Dibromochloromethane&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Dibromochloromethane&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2216,7 +2448,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal.excess dibromochloromethane is a serious risk for cancer.<br><br>"+
+                        "\t<strong>Results</strong>:It is normal.Excess dibromochloromethane is a serious risk for cancer.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -2226,7 +2458,7 @@ public class Problem1 extends AppCompatActivity {
                 tt42.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Dibromochloromethane&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Dibromochloromethane&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2254,7 +2486,7 @@ public class Problem1 extends AppCompatActivity {
                 tt43.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Bromodichloromethane&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Bromodichloromethane&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2262,7 +2494,7 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal.<br><br>"+
+                        "\t<strong>Results</strong>:It is normal.It is acceptable for drinking.<br><br>"+
                         "" +
                         "\t\t\t------------------"+
                         "\t"));
@@ -2272,7 +2504,7 @@ public class Problem1 extends AppCompatActivity {
                 tt43.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Bromodichiromethane&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Bromodichiromethane&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2302,18 +2534,18 @@ public class Problem1 extends AppCompatActivity {
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
-                        "\t<strong>limits</strong>: 0.2-No relaxation<br><br>"+
+                        "\t<strong>limits</strong>: 0.02 Mg/l to No relaxation<br><br>"+
                         "" +
                         "\t<strong>Entered Value:</strong>"+ String.valueOf(i) +"<br><br>"+
                         "" +
-                        "\t<strong>Results</strong>:It is normal. excess may damage liver and kidney functions. </p>"));
+                        "\t<strong>Results</strong>:It is normal.Excess may damage liver and kidney functions. </p>"));
             }
             else
             {
                 tt44.setText(Html.fromHtml("<p>\n" +
                         "\t\t\t------------------<br><br>"+
                         "" +
-                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Chlorofom&nbsp;</span><span style=\"font-size: 20px;\">Mg/l Max</span><br><br>"+
+                        "\t<strong>Parameter</strong>: <span style=\"font-size:20px;\">Chlorofom&nbsp;</span><span style=\"font-size: 20px;\"></span><br><br>"+
                         "" +
                         "\t<strong>Units</strong>: Mg/l<br><br>"+
                         "" +
@@ -2333,6 +2565,20 @@ public class Problem1 extends AppCompatActivity {
 
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        VideoView video = (VideoView) findViewById(R.id.problem1_video);
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.video;
+        video.setVideoURI(Uri.parse(path));
+        video.start();
+        video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+    }
 }
 
 

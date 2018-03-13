@@ -1,7 +1,10 @@
 package com.example.apbc.waterexpert;
 
+import android.content.Intent;
 import android.graphics.Matrix;
 import android.graphics.PointF;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -15,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -53,6 +57,16 @@ public class Problem4 extends AppCompatActivity {
         treatmentlay = (LinearLayout) findViewById(R.id.problem4ResultLayout1);
         original = (LinearLayout) findViewById(R.id.problem4linear);
         treatment = (Button) findViewById(R.id.problem4treatment);
+        VideoView video = (VideoView) findViewById(R.id.problem1_video);
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.video;
+        video.setVideoURI(Uri.parse(path));
+        video.start();
+        video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
         img = (ImageView) findViewById(R.id.problem4Image);
         treatbuttonlay = (LinearLayout) findViewById(R.id.treatbutlay);
         img1 = (ImageView) findViewById(R.id.problem4Image1);
@@ -68,6 +82,24 @@ public class Problem4 extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        VideoView video = (VideoView) findViewById(R.id.problem1_video);
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.video;
+        video.setVideoURI(Uri.parse(path));
+        video.start();
+        video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+    }
+    public void back(View v)
+    {
+        startActivity(new Intent(this,MainActivity.class));
+    }
 
     public void submitted4(View v) {
         original.setVisibility(View.GONE);
@@ -83,12 +115,16 @@ public class Problem4 extends AppCompatActivity {
                     "\n" +
                     "Limits:-Levels of colour Between 5 to 15 TCU are often acceptable to consumers.\n" +
                     "\n" +
-                    "Source :- Iron, Copper, Manganese.\n"
+                    "Measurements: Colour is measured by visual comparison of the sample with platinum-cobalt standards. One unit of colour is that produced by 1 mg/L platinum in the form of the chloroplatinate ion.\n\nAvailability:  The presence of metals like Tannins, Iron, Copper, Manganese, Natural deposits in water in high amounts adds colour to water.\n" +
+                    "Red or brown colour: A red, brown or rusty colour is generally indicative of iron or magnesium in water.\n" +
+                    "Yellow Colour: This coloration occurs in regions where the water has passed through marshlands and then moved through peat soils. It is more commonly found in surface water supplies and shallow wells. Although the yellow colour may be displeasing, it presents no health hazard, as it is only small particles suspended in the water.\n" +
+                    "Blue or Green Colour: A green or blue colour is generally a result of copper in your water supply, or copper pipes and corrosive water.\n" +
+                    "Cloudy White or Foamy: Cloudy water is usually due to turbidity. Turbidity is caused by finely divided particles in the water.\n"
             );
 
 
             img.setVisibility(View.VISIBLE);//For image in first page
-            img.setImageResource(R.drawable.color);//For image in first page
+            img.setImageResource(R.drawable.color_effect);//For image in first page
             //For treatment Methods
             treatment.setOnClickListener(new View.OnClickListener() {
 
@@ -116,11 +152,11 @@ public class Problem4 extends AppCompatActivity {
                     "\n" +
                     "Limits :-Desirable Limits:-Un objectionable.\n" +
                     "\n" +
-                    "Effects:-Odor is not a reliable way to determine the risk of health effects. For some chemicals, odors will be noticeable at low concentrations where the risk for health effects is also very low.\n");
+                    "Availability:  presence of these elements like Chlorine, Hydrogen sulphide, Organic matter, Septic contamination, Methane gas in water results in odour.\n\nEffects:-Odour is not a reliable way to determine the risk of health effects. For some chemicals, odors will be noticeable at low concentrations where the risk for health effects is also very low.\n");
 
 
-            //img.setVisibility(View.VISIBLE);//For image in first page
-            img.setImageResource(R.drawable.odour);//For image in first page
+            img.setVisibility(View.VISIBLE);//For image in first page
+            img.setImageResource(R.drawable.odour_effect);//For image in first page
             //For treatment Methods
             treatment.setOnClickListener(new View.OnClickListener() {
 
@@ -135,7 +171,7 @@ public class Problem4 extends AppCompatActivity {
                             "2)\tOxidation\n" +
                             "3)\tActivated carbon absorption.\n");
 
-                    //img1.setImageResource(R.drawable.colorteatment);//For image in treatment section. comment out the line if no image is needed.
+                    img1.setImageResource(R.drawable.colorteatment);//For image in treatment section. comment out the line if no image is needed.
                 }
             });
             //End of Treatment
@@ -173,13 +209,11 @@ public class Problem4 extends AppCompatActivity {
 
 
         if (selectedOption == 4) {
-            textView.setText("Details:-\n" +
+            textView.setText("Details:-The dissolved organic materials are the in orcanic salts or the dissolved gases may impart to taste to water which may be caused by the presence of dissolved gases such as H2S, CH4,CO2,O2 etc., are combined with organic matter ; mineral substances like Nacl ,iron compound carbonates and sulphates of other elements; and phenols and other tarry or oil matter, Especially after chlorination .evidently ,for drinking purpose the water must not contain any un desirable or objectable taste . Basically taste is divided into different types . such as Sweety Salty, Bitter ,Medical ,Metallic ,etc.,.\n" +
                     "\n" +
-                    "Limits:-Desirable Limits: 6.5-8.5          Permissible Limits: No relaxation.\n" +
-                    "\n" +
-                    "Effects:-Beyond this range water will affect the mucous membrane.\n" +
-                    "\n" +
-                    "Measurement :-  pH Meter\n");
+                    "Limits:-Desirable Limits: Agreeable\n" +
+                    "\n"
+                    );
 
 
            // img.setVisibility(View.VISIBLE);//For image in first page
@@ -199,7 +233,7 @@ public class Problem4 extends AppCompatActivity {
                             "In order to determine whether color is coming from suspended solids or from dissolved solids, have a water laboratory test for color units in a representative sample of water.  Then have the lab technician pour the water through 5-micron filter paper and test the filtered water again for color units.\n" +
                             "If color is not detectable and the water appears clear, a multi-media filter is the most effective choice and activated carbon will not be necessary.  If most, but not enough of the color is removed, then a multi-media filter followed by activated carbon should produce the desired result.  If color is virtually unaffected by the filter paper, then use activated carbon.\n");
 
-                    //img1.setImageResource(R.drawable.colorteatment);//For image in treatment section. comment out the line if no image is needed.
+                    img1.setImageResource(R.drawable.colorteatment);//For image in treatment section. comment out the line if no image is needed.
                 }
             });
             //End of Treatment

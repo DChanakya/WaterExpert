@@ -1,6 +1,9 @@
 package com.example.apbc.waterexpert;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -10,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.apbc.waterexpert.Adapters.CustomCauseListAdapter;
 import com.example.apbc.waterexpert.Adapters.CustomListAdapter;
@@ -37,6 +41,16 @@ public class Problem3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problem3);
         initialize();
+        VideoView video = (VideoView) findViewById(R.id.problem1_video);
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.video;
+        video.setVideoURI(Uri.parse(path));
+        video.start();
+        video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
         count=0;
         tableLayout = (ListView) findViewById(R.id.tableLayout);
         causeLayout = (ListView) findViewById(R.id.causeLayout);
@@ -59,6 +73,25 @@ public class Problem3 extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        VideoView video = (VideoView) findViewById(R.id.problem1_video);
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.video;
+        video.setVideoURI(Uri.parse(path));
+        video.start();
+        video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+    }
+    public void back(View v)
+    {
+        startActivity(new Intent(this,MainActivity.class));
+    }
+
     public void initialize() {
         t1 = (EditText) findViewById(R.id.problem3_editView1);
 //        t2 = (EditText) findViewById(R.id.problem3_editView2);
@@ -210,14 +243,14 @@ public class Problem3 extends AppCompatActivity {
         if(count>0)
         {
             summary.setVisibility(View.VISIBLE);
-            summary.setText("Summary: Your water is unfit for drinking");
+            summary.setText("SUMMARY:Based on the above parameters entered, Your water is unfit for drinking");
             causeText.setVisibility(View.VISIBLE);
 
         }
         else
         {
             summary.setVisibility(View.VISIBLE);
-            summary.setText("Summary: Your water is Safe for drinking");
+            summary.setText("SUMMARY:Based on the above parameters entered Your water is Safe for drinking");
         }
     }
 
@@ -306,7 +339,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Turbudity NTU", String.valueOf(i), "1-5", "Normal"
+                                "Turbidity NTU", String.valueOf(i), "1-5", "Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -314,7 +347,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Turbudity NTU",String.valueOf(i),"1-5","Below the limit"
+                                "Turbidity NTU",String.valueOf(i),"1-5","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -323,14 +356,14 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Turbudity NTU",String.valueOf(i),"1-5","Above the limit"
+                                "Turbidity NTU",String.valueOf(i),"1-5","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Turbudity","5"
+                        "Turbidity","5"
                 )
         );
 
@@ -347,7 +380,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "PH Value",String.valueOf(i),"5.5-8.5","Normal"
+                                "PH Value",String.valueOf(i),"6.5-8.5","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -355,7 +388,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "PH Value",String.valueOf(i),"5.5-8.5","Below the limit"
+                                "PH Value",String.valueOf(i),"6.5-8.5","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -364,14 +397,14 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "PH Value",String.valueOf(i),"5.5-8.5","Above the limit"
+                                "PH Value",String.valueOf(i),"6.5-8.5","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "PH","4"
+                        "PH","3"
                 )
         );
             }
@@ -391,7 +424,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Dissolved Solids Mg/L",String.valueOf(i),"500-2000","Below the limit"
+                                "Total Dissolved Solids Mg/L",String.valueOf(i),"500-2000","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -414,7 +447,7 @@ public class Problem3 extends AppCompatActivity {
  causeList.add(
                 new CauseListModel(
 
-                        "Total Dissolved Solids Mg/L","7"
+                        "Total Dissolved Solids Mg/L","6"
                 )
         );
         }
@@ -430,7 +463,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Hardness Mg/L", String.valueOf(i), "200-600", "Below the limit"
+                                "Total Hardness Mg/L", String.valueOf(i), "200-600", "Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -455,7 +488,7 @@ public class Problem3 extends AppCompatActivity {
                 causeList.add(
                         new CauseListModel(
 
-                                "Total Hardness Mg/L", "30"
+                                "Total Hardness Mg/L", "29"
                         )
                 );
             }
@@ -471,7 +504,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Alkalinitiyas Calcium Carvonate Mg/L",String.valueOf(i),"200-600","Below the limit"
+                                "Total Alkalinity Mg/L",String.valueOf(i),"200-600","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -479,7 +512,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Alkalinitiyas Calcium Carvonate Mg/L",String.valueOf(i),"200-600","Below the limit"
+                                "Total Alkalinity Mg/L",String.valueOf(i),"200-600","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -487,14 +520,14 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Alkalinitiyas Calcium Carvonate Mg/L",String.valueOf(i),"200-600","Above the limit"
+                                "Total Alkalinity Mg/L",String.valueOf(i),"200-600","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Total Alkalinitiyas Calcium Carvonate Mg/L","29"
+                        "Total Alkalinity Mg/L","28"
                 )
         );
             }
@@ -507,7 +540,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st9.isEmpty())
         {   float i = Float.parseFloat(st9);
 
-            if(i>=0.3)
+            if(i<=0.3)
             {
                 list.add(
                         new ListModel(
@@ -517,12 +550,12 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.3)
             {
                 list.add(
                         new ListModel(
 
-                                "Iron Mg/L",String.valueOf(i),"0.3","Below the limit"
+                                "Iron Mg/L",String.valueOf(i),"0.3","Above the limit."
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++;
@@ -575,7 +608,7 @@ public class Problem3 extends AppCompatActivity {
              causeList.add(
                             new CauseListModel(
 
-                                    "Chloride","15"
+                                    "Chloride","14"
                             )
                     );
                         }
@@ -621,7 +654,7 @@ public class Problem3 extends AppCompatActivity {
  causeList.add(
                 new CauseListModel(
 
-                        "Free residual Chlorine Mg/L","18"
+                        "Free residual Chlorine Mg/L","17"
                 )
         );
             }
@@ -668,7 +701,7 @@ public class Problem3 extends AppCompatActivity {
  causeList.add(
                 new CauseListModel(
 
-                        "Sulphate","27"
+                        "Sulphate","26"
                 )
         );
             }
@@ -682,7 +715,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st13.isEmpty())
         {   float i = Float.parseFloat(st13);
 
-            if(i>=0.05)
+            if(i<=0.05)
             {
                 list.add(
                         new ListModel(
@@ -692,19 +725,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.05)
             {
                 list.add(
                         new ListModel(
 
-                                "Sulphide Mg/L",String.valueOf(i),"0.05","Below the limit"
+                                "Sulphide Mg/L",String.valueOf(i),"0.05","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++;
  causeList.add(
                 new CauseListModel(
 
-                        "Sulphide","28"
+                        "Sulphide","27"
                 )
         );
             }
@@ -718,7 +751,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st14.isEmpty())
         {   float i = Float.parseFloat(st14);
 
-            if(i>=45)
+            if(i<=45)
             {
                 list.add(
                         new ListModel(
@@ -728,19 +761,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>45)
             {
                 list.add(
                         new ListModel(
 
-                                "Nitrate Mg/L",String.valueOf(i),"45","Below the limit"
+                                "Nitrate Mg/L",String.valueOf(i),"45","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Nitrate","23"
+                        "Nitrate","22"
                 )
         );
             }
@@ -759,7 +792,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Flouride Mg/L",String.valueOf(i),"1.0-1.5","Normal"
+                                "Fluoride Mg/L",String.valueOf(i),"1.0-1.5","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -769,7 +802,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Flouride Mg/L",String.valueOf(i),"1.0-1.5","Below the limit"
+                                "Fluoride Mg/L",String.valueOf(i),"1.0-1.5","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -779,14 +812,14 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Flouride Mg/L",String.valueOf(i),"1.0-1.5","Above the limit"
+                                "Fluoride Mg/L",String.valueOf(i),"1.0-1.5","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Flouride","17"
+                        "Fluoride","16"
                 )
         );
             }
@@ -832,7 +865,7 @@ public class Problem3 extends AppCompatActivity {
  causeList.add(
                 new CauseListModel(
 
-                        "Calcium","13"
+                        "Calcium","12"
                 )
         );
             }
@@ -878,7 +911,7 @@ public class Problem3 extends AppCompatActivity {
  causeList.add(
                 new CauseListModel(
 
-                        "Copper","16"
+                        "Copper","15"
                 )
         );
             }
@@ -897,7 +930,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Magneesium Mg/L",String.valueOf(i),"30-100","Normal"
+                                "Magnesium Mg/L",String.valueOf(i),"30-100","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -907,24 +940,24 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Magneesium Mg/L",String.valueOf(i),"30-100","Below the limit"
+                                "Magnesium Mg/L",String.valueOf(i),"30-100","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>100)
             {
                 list.add(
                         new ListModel(
 
-                                "Magneesium Mg/L",String.valueOf(i),"30-100","Above the limit"
+                                "Magnesium Mg/L",String.valueOf(i),"30-100","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Magneesium","20"
+                        "Magnesium","19"
                 )
         );
             }
@@ -943,7 +976,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Manganeese Mg/L",String.valueOf(i),"0.1-0.3","Normal"
+                                "Manganese Mg/L",String.valueOf(i),"0.1-0.3","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -953,7 +986,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Manganeese Mg/L",String.valueOf(i),"0.1-0.3","Below the limit"
+                                "Manganese Mg/L",String.valueOf(i),"0.1-0.3","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -963,14 +996,14 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Manganeese Mg/L",String.valueOf(i),"0.1-0.3","Above the limit"
+                                "Manganese Mg/L",String.valueOf(i),"0.1-0.3","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Manganeese","21"
+                        "Manganese","20"
                 )
         );
             }
@@ -984,7 +1017,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st20.isEmpty())
         {   float i = Float.parseFloat(st20);
 
-            if(i>=0.001)
+            if(i<=0.001)
             {
                 list.add(
                         new ListModel(
@@ -995,19 +1028,19 @@ public class Problem3 extends AppCompatActivity {
                 customListAdapter.notifyDataSetChanged();
             }
 
-            else
+            else if(i>0.001)
             {
                 list.add(
                         new ListModel(
 
-                                "Mercury Mg/L",String.valueOf(i),"0.001","Below the limit"
+                                "Mercury Mg/L",String.valueOf(i),"0.001","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Mercury","35"
+                        "Mercury","34"
                 )
         );
             }
@@ -1021,29 +1054,29 @@ public class Problem3 extends AppCompatActivity {
         if(!st21.isEmpty())
         {   float i = Float.parseFloat(st21);
 
-            if(i>=0.003)
+            if(i<=0.003)
             {
                 list.add(
                         new ListModel(
 
-                                "Codtrium Mg/L",String.valueOf(i),"0.003","Normal"
+                                "Cadmium Mg/L",String.valueOf(i),"0.003","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.003)
             {
                 list.add(
                         new ListModel(
 
-                                "Codtrium Mg/L",String.valueOf(i),"0.003","Below the limit"
+                                "Cadmium Mg/L",String.valueOf(i),"0.003","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Codtrium","50"
+                        "Cadmium","31"
                 )
         );
             }
@@ -1057,7 +1090,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st22.isEmpty())
         {   float i = Float.parseFloat(st22);
 
-            if(i>=0.01)
+            if(i<=0.01)
             {
                 list.add(
                         new ListModel(
@@ -1067,19 +1100,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.01)
             {
                 list.add(
                         new ListModel(
 
-                                "Selenium Mg/L",String.valueOf(i),"0.01","Below the limit"
+                                "Selenium Mg/L",String.valueOf(i),"0.01","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Selenium","25"
+                        "Selenium","24"
                 )
         );
             }
@@ -1098,7 +1131,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Aesenic Mg/L",String.valueOf(i),"0.01-0.05","Normal"
+                                "Total Arsenic Mg/L",String.valueOf(i),"0.01-0.05","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -1108,7 +1141,7 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Aesenic  Mg/L",String.valueOf(i),"0.01-0.05","Below the limit"
+                                "Total Arsenic  Mg/L",String.valueOf(i),"0.01-0.05","Below the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
@@ -1118,14 +1151,14 @@ public class Problem3 extends AppCompatActivity {
                 list.add(
                         new ListModel(
 
-                                "Total Aesenic Mg/L",String.valueOf(i),"0.01-0.05","Above the limit"
+                                "Total Arsenic Mg/L",String.valueOf(i),"0.01-0.05","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Total Aesenic","41"
+                        "Total Arsenic","40"
                 )
         );
             }
@@ -1139,7 +1172,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st24.isEmpty())
         {   float i = Float.parseFloat(st24);
 
-            if(i>=0.05)
+            if(i<=0.05)
             {
                 list.add(
                         new ListModel(
@@ -1149,19 +1182,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.05)
             {
                 list.add(
                         new ListModel(
 
-                                "Cyanide Mg/L",String.valueOf(i),"0.05","Below the limit"
+                                "Cyanide Mg/L",String.valueOf(i),"0.05","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Cyanide","33"
+                        "Cyanide","32"
                 )
         );
             }
@@ -1175,7 +1208,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st25.isEmpty())
         {   float i = Float.parseFloat(st25);
 
-            if(i>=0.01)
+            if(i<=0.01)
             {
                 list.add(
                         new ListModel(
@@ -1185,19 +1218,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.01)
             {
                 list.add(
                         new ListModel(
 
-                                "Lead Mg/L",String.valueOf(i),"0.01","Below the limit"
+                                "Lead Mg/L",String.valueOf(i),"0.01","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Lead","34"
+                        "Lead","33"
                 )
         );
             }
@@ -1243,7 +1276,7 @@ public class Problem3 extends AppCompatActivity {
  causeList.add(
                 new CauseListModel(
 
-                        "Zinc","31"
+                        "Zinc","30"
                 )
         );
             }
@@ -1257,7 +1290,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st27.isEmpty())
         {   float i = Float.parseFloat(st27);
 
-            if(i>=0.05)
+            if(i<=0.05)
             {
                 list.add(
                         new ListModel(
@@ -1267,19 +1300,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.05)
             {
                 list.add(
                         new ListModel(
 
-                                "Total Chromium Mg/L",String.valueOf(i),"0.05","Below the limit"
+                                "Total Chromium Mg/L",String.valueOf(i),"0.05","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Total Chromium Mg/L","42"
+                        "Total Chromium Mg/L","41"
                 )
         );
             }
@@ -1325,7 +1358,7 @@ public class Problem3 extends AppCompatActivity {
  causeList.add(
                 new CauseListModel(
 
-                        "Aluminium Mg/L","8"
+                        "Aluminium Mg/L","7"
                 )
         );
             }
@@ -1371,7 +1404,7 @@ public class Problem3 extends AppCompatActivity {
  causeList.add(
                 new CauseListModel(
 
-                        "Boron","12"
+                        "Boron","11"
                 )
         );
             }
@@ -1385,7 +1418,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st30.isEmpty())
         {   float i = Float.parseFloat(st30);
 
-            if(i>=0.5)
+            if(i<=0.5)
             {
                 list.add(
                         new ListModel(
@@ -1395,19 +1428,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.5)
             {
                 list.add(
                         new ListModel(
 
-                                "Ammonia Mg/L",String.valueOf(i),"0.5","Below the limit"
+                                "Ammonia Mg/L",String.valueOf(i),"0.5","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Ammonia","9"
+                        "Ammonia","8"
                 )
         );
             }
@@ -1421,7 +1454,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st31.isEmpty())
         {   float i = Float.parseFloat(st31);
 
-            if(i>=0.7)
+            if(i<=0.7)
             {
                 list.add(
                         new ListModel(
@@ -1431,19 +1464,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.7)
             {
                 list.add(
                         new ListModel(
 
-                                "Barium Mg/L",String.valueOf(i),"0.7","Below the limit"
+                                "Barium Mg/L",String.valueOf(i),"0.7","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Barium","11"
+                        "Barium","10"
                 )
         );
             }
@@ -1457,7 +1490,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st32.isEmpty())
         {   float i = Float.parseFloat(st32);
 
-            if(i>=0.1)
+            if(i<=0.1)
             {
                 list.add(
                         new ListModel(
@@ -1467,19 +1500,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.1)
             {
                 list.add(
                         new ListModel(
 
-                                "Silver Mg/L",String.valueOf(i),"0.1","Below the limit"
+                                "Silver Mg/L",String.valueOf(i),"0.1","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Silver","26"
+                        "Silver","25"
                 )
         );
             }
@@ -1493,7 +1526,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st33.isEmpty())
         {   float i = Float.parseFloat(st33);
 
-            if(i>=0.07)
+            if(i<=0.07)
             {
                 list.add(
                         new ListModel(
@@ -1503,19 +1536,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.07)
             {
                 list.add(
                         new ListModel(
 
-                                "Molybdenum Mg/L",String.valueOf(i),"0.07","Below the limit"
+                                "Molybdenum Mg/L",String.valueOf(i),"0.07","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Molybdenum","36"
+                        "Molybdenum","35"
                 )
         );
             }
@@ -1529,29 +1562,29 @@ public class Problem3 extends AppCompatActivity {
         if(!st34.isEmpty())
         {   float i = Float.parseFloat(st34);
 
-            if(i>=0.02)
+            if(i<=0.02)
             {
                 list.add(
                         new ListModel(
 
-                                "Nikel Mg/L",String.valueOf(i),"0.02","Normal"
+                                "Nickel Mg/L",String.valueOf(i),"0.02","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.02)
             {
                 list.add(
                         new ListModel(
 
-                                "Nikel Mg/L",String.valueOf(i),"0.02","Below the limit"
+                                "Nickel Mg/L",String.valueOf(i),"0.02","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Nikel","37"
+                        "Nickel","36"
                 )
         );
             }
@@ -1565,7 +1598,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st35.isEmpty())
         {   float i = Float.parseFloat(st35);
 
-            if(i>=0.001)
+            if(i<=0.001)
             {
                 list.add(
                         new ListModel(
@@ -1575,19 +1608,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.001)
             {
                 list.add(
                         new ListModel(
 
-                                "Phenolic Compound Mg/L",String.valueOf(i),"0.001","Below the limit"
+                                "Phenolic Compound Mg/L",String.valueOf(i),"0.001","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Phenolic Compound ","24"
+                        "Phenolic Compound ","23"
                 )
         );
             }
@@ -1601,29 +1634,29 @@ public class Problem3 extends AppCompatActivity {
         if(!st36.isEmpty())
         {   float i = Float.parseFloat(st36);
 
-            if(i>=0.0005)
+            if(i<=0.0005)
             {
                 list.add(
                         new ListModel(
 
-                                "PolyChlorinated Biphents Mg/L",String.valueOf(i),"0.0005","Normal"
+                                "PolyChlorinated Biphenyls Mg/L",String.valueOf(i),"0.0005","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.0005)
             {
                 list.add(
                         new ListModel(
 
-                                "PolyChlorinated Biphents Mg/L",String.valueOf(i),"0.0005","Below the limit"
+                                "PolyChlorinated Biphenyls Mg/L",String.valueOf(i),"0.0005","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "PolyChlorinated Biphents","39"
+                        "PolyChlorinated Biphenyls","39"
                 )
         );
             }
@@ -1637,7 +1670,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st37.isEmpty())
         {   float i = Float.parseFloat(st37);
 
-            if(i>=0.0001)
+            if(i<=0.0001)
             {  list.add(
                     new ListModel(
 
@@ -1646,19 +1679,19 @@ public class Problem3 extends AppCompatActivity {
             );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.0001)
             {
                 list.add(
                         new ListModel(
 
-                                "Polynuclear aromatic Hydrocarbons Mg/L",String.valueOf(i),"0.0001","Below the limit"
+                                "Polynuclear aromatic Hydrocarbons Mg/L",String.valueOf(i),"0.0001","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Polynuclear aromatic Hydrocarbons","40"
+                        "Polynuclear aromatic Hydrocarbons","39"
                 )
         );
             }
@@ -1704,7 +1737,7 @@ public class Problem3 extends AppCompatActivity {
  causeList.add(
                 new CauseListModel(
 
-                        "Anionic Detergents","10"
+                        "Anionic Detergents","9"
                 )
         );
             }
@@ -1718,7 +1751,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st39.isEmpty())
         {   float i = Float.parseFloat(st39);
 
-            if(i>=4)
+            if(i<=4)
             {
                 list.add(
                         new ListModel(
@@ -1728,19 +1761,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>4)
             {
                 list.add(
                         new ListModel(
 
-                                "Chloramines Mg/L",String.valueOf(i),"4","Below the limit"
+                                "Chloramines Mg/L",String.valueOf(i),"4","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Chloramines","14"
+                        "Chloramines","13"
                 )
         );
             }
@@ -1761,29 +1794,29 @@ public class Problem3 extends AppCompatActivity {
         if(!st41.isEmpty())
         {   float i = Float.parseFloat(st41);
 
-            if(i>=0.1)
+            if(i<=0.1)
             {
                 list.add(
                         new ListModel(
 
-                                "Bromolom Mg/L",String.valueOf(i),"0.1","Normal"
+                                "Bromoform Mg/L",String.valueOf(i),"0.1","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.1)
             {
                 list.add(
                         new ListModel(
 
-                                "Bromolom Mg/L",String.valueOf(i),"0.1","Below the limit"
+                                "Bromoform Mg/L",String.valueOf(i),"0.1","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Bromolom","43"
+                        "Bromoform","42"
                 )
         );
             }
@@ -1797,29 +1830,29 @@ public class Problem3 extends AppCompatActivity {
         if(!st42.isEmpty())
         {   float i = Float.parseFloat(st42);
 
-            if(i>=0.1)
+            if(i<=0.1)
             {
                 list.add(
                         new ListModel(
 
-                                "Dibromochioromethane Mg/L",String.valueOf(i),"0.1","Normal"
+                                "Dibromochloromethane Mg/L",String.valueOf(i),"0.1","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.1)
             {
                 list.add(
                         new ListModel(
 
-                                "Dibromochioromethane Mg/L",String.valueOf(i),"0.1","Below the limit"
+                                "Dibromochloromethane Mg/L",String.valueOf(i),"0.1","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Dibromochioromethane","44"
+                        "Dibromochloromethane","43"
                 )
         );
             }
@@ -1833,29 +1866,29 @@ public class Problem3 extends AppCompatActivity {
         if(!st43.isEmpty())
         {   float i = Float.parseFloat(st43);
 
-            if(i>=0.06)
+            if(i<=0.06)
             {
                 list.add(
                         new ListModel(
 
-                                "Bromodichioromethane Mg/L",String.valueOf(i),"0.06","Normal"
+                                "Bromodichloromethane Mg/L",String.valueOf(i),"0.06","Normal"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.06)
             {
                 list.add(
                         new ListModel(
 
-                                "Bromodichioromethane Mg/L",String.valueOf(i),"0.06","Below the limit"
+                                "Bromodichloromethane Mg/L",String.valueOf(i),"0.06","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Bromodichioromethane","45"
+                        "Bromodichloromethane","44"
                 )
         );
             }
@@ -1869,7 +1902,7 @@ public class Problem3 extends AppCompatActivity {
         if(!st44.isEmpty())
         {   float i = Float.parseFloat(st44);
 
-            if(i>=0.2)
+            if(i<=0.2)
             {
                 list.add(
                         new ListModel(
@@ -1879,19 +1912,19 @@ public class Problem3 extends AppCompatActivity {
                 );
                 customListAdapter.notifyDataSetChanged();
             }
-            else
+            else if(i>0.2)
             {
                 list.add(
                         new ListModel(
 
-                                "Chloroform Mg/L",String.valueOf(i),"0.2","Below the limit"
+                                "Chloroform Mg/L",String.valueOf(i),"0.2","Above the limit"
                         )
                 );
                 customListAdapter.notifyDataSetChanged();count++; 
  causeList.add(
                 new CauseListModel(
 
-                        "Chloroform","46"
+                        "Chloroform","45"
                 )
         );
             }

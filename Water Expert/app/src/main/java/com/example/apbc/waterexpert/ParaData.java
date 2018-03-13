@@ -1,7 +1,7 @@
 package com.example.apbc.waterexpert;
 
 public class ParaData {
-    private String turbudity;
+    private String turbidity;
     private String source;
     private String taste;
     private String odour;
@@ -16,14 +16,14 @@ public class ParaData {
         this.odour = odour;
     }
 
-    public String getTurbudity() {
-        return turbudity;
+    public String getTurbidity() {
+        return turbidity;
     }
 
     @Override
     public String toString() {
         return "ParaData{" +
-                "turbudity='" + turbudity + '\'' +
+                "turbidity='" + turbidity + '\'' +
                 ", source='" + source + '\'' +
                 ", taste='" + taste + '\'' +
                 ", odour='" + odour + '\'' +
@@ -32,8 +32,8 @@ public class ParaData {
                 '}';
     }
 
-    public void setTurbudity(String turbudity) {
-        this.turbudity = turbudity;
+    public void setTurbidity(String turbidity) {
+        this.turbidity = turbidity;
     }
 
     public String getSource() {

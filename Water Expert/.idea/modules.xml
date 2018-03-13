@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Water Expert.iml" filepath="$PROJECT_DIR$/Water Expert.iml" />
       <module fileurl="file://C:\Users\danda\Desktop\water-expert-mark1\WaterExpert.iml" filepath="C:\Users\danda\Desktop\water-expert-mark1\WaterExpert.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/water-expert-mark1.iml" filepath="$PROJECT_DIR$/water-expert-mark1.iml" />
+      <module fileurl="file://E:\1\WaterExpert-master\Water Expert\water-expert-mark1.iml" filepath="E:\1\WaterExpert-master\Water Expert\water-expert-mark1.iml" />
     </modules>
   </component>
 </project>

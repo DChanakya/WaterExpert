@@ -9,6 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/background"
         >
 
         <LinearLayout
@@ -16,12 +17,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <VideoView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:padding="5dp"
+                android:paddingTop="5dp"
+                android:id="@+id/problem1_video"
                 android:paddingBottom="30dp"
-                android:scaleType="fitXY"
 
                 app:srcCompat="@drawable/banner2" />
 
@@ -34,8 +36,8 @@
                 android:paddingBottom="40dp"
                 android:textAlignment="center"
 
-                android:text="@string/through_this_we_can_check_the_units_minimum_and_maximum_range_values_and_their_effects_for_the_entered_parameter_value"
-                android:textColor="@color/colorPrimaryDark"
+                android:text="Enter the parameter value"
+                android:textColor="@android:color/background_light"
                 android:textSize="18sp" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,7 +90,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Turbudity NTU"
+                        android:text="Turbidity NTU"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -172,7 +174,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Total Hardness Mg/l CaCo3"
+                        android:text="Total Hardness Mg/l "
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -200,7 +202,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Total Alkalinityas calcium Carvonate Mg/l"
+                        android:text="Total Alkalinity Mg/l"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -284,7 +286,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Free Resudual Chlorine Mg/l"
+                        android:text="Free Residual Chlorine Mg/l"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -564,7 +566,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Codtrium Mg/l"
+                        android:text="Cadmium Mg/l"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -620,7 +622,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Total Aesenic Mg/l"
+                        android:text="Total Arsenic Mg/l"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -928,7 +930,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Nikel Mg/l"
+                        android:text="Nickel Mg/l"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -984,7 +986,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Polychlorinated biphents Mg/l"
+                        android:text="Polychlorinated biphenyls Mg/l"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -1124,7 +1126,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Bromolom Mg/l"
+                        android:text="Bromoform Mg/l"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -1152,7 +1154,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Dibromochioromethane Mg/l"
+                        android:text="Dibromochloromethane Mg/l"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -1180,7 +1182,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Bromodichiromethane Mg/l"
+                        android:text="Bromodichlromethane Mg/l"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -1208,7 +1210,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="Chriorotom Mg/l"
+                        android:text="Chloroform Mg/l"
                         android:layout_weight="1"/>
                     <EditText
                         android:inputType="numberDecimal"
@@ -1226,6 +1228,25 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingBottom="20dp">
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <Button
+
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Back to Home"
+                        android:onClick="back"
+                        android:padding="10dp" />
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
 
                     <android.support.v4.widget.Space
                         android:layout_width="10dp"
@@ -1292,7 +1313,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="false"
-        android:text="Causes"
+        android:text="Why"
         android:id="@+id/causeText"
         android:padding="10dp"
         android:paddingBottom="10dp"

@@ -10,18 +10,20 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background"
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <VideoView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:padding="5dp"
+                android:paddingTop="5dp"
+                android:id="@+id/problem1_video"
                 android:paddingBottom="30dp"
-                android:scaleType="fitXY"
 
                 app:srcCompat="@drawable/banner2" />
 
@@ -34,7 +36,7 @@
                 android:textAlignment="center"
                 android:id="@+id/problem2header"
                 android:text="Here We Find The Quality Of Water, By Observing Some of the External Factors Like"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@android:color/background_light"
                 android:textSize="18sp" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,11 +111,11 @@
                     android:layout_weight="1" />
 
                 <Spinner
-android:id="@+id/turbudity"
+android:id="@+id/turbidity"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/turbudity"
+                    android:entries="@array/turbidity"
                     android:padding="10dp" />
 
                 <android.support.v4.widget.Space
@@ -179,6 +181,24 @@ android:id="@+id/turbudity"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="40dp">
+                <android.support.v4.widget.Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Back to home"
+                    android:onClick="back"
+                    android:padding="10dp" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="10dp"
