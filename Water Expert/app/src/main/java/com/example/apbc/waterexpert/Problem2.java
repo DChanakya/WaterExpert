@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ public class Problem2 extends AppCompatActivity {
     String colourstring, odourstring, tastestring, turbuditystring, sourcestring,colorDataString,odourDataString,tasteDataString,turbidityDataString,sourceDataString,resultDataString;
     LinearLayout problem2layout, problem2resultlaout;
     TextView resultText,head;
+    int count;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,11 +77,16 @@ public class Problem2 extends AppCompatActivity {
     }
     public void submitted2(View v) {
 
+        if(count==1) {
+            startActivity(new Intent(this,Problem2.class));
+        }
         if(color.getSelectedItemPosition()<1 || taste.getSelectedItemPosition()<1 || odour.getSelectedItemPosition()<1 || turbidity.getSelectedItemPosition()<1 || source.getSelectedItemPosition()<1){
             Toast.makeText(this, "Please Select Every Field", Toast.LENGTH_SHORT).show();
         }
         else {
-
+            count=count+1;
+            Button sub = (Button) findViewById(R.id.subButton);
+            sub.setText("back");
             ProgressDialog pd = ProgressDialog.show(this, "Analyzing", "This may take few seconds..");
             problem2layout.setVisibility(GONE);
             problem2resultlaout.setVisibility(View.VISIBLE);

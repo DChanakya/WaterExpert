@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.apbc.waterexpert.Adapters.CustomCauseListAdapter;
@@ -194,66 +195,67 @@ public class Problem3 extends AppCompatActivity {
     public void submitted1(View v) {
 
         read();
-        dataEntryLayout.setVisibility(View.GONE);
-        head.setText("Results".toUpperCase());
-        calculate1();
+        if (st1.isEmpty() && st4.isEmpty() && st5.isEmpty() && st6.isEmpty() && st8.isEmpty() && st7.isEmpty() && st9.isEmpty() && st10.isEmpty() && st11.isEmpty() && st12.isEmpty() && st13.isEmpty() && st14.isEmpty() && st15.isEmpty() && st16.isEmpty() && st17.isEmpty() && st18.isEmpty() && st19.isEmpty() && st20.isEmpty() && st21.isEmpty() && st22.isEmpty() && st23.isEmpty() && st24.isEmpty() && st25.isEmpty() && st26.isEmpty() && st27.isEmpty() && st28.isEmpty() && st29.isEmpty() && st30.isEmpty() && st31.isEmpty() && st32.isEmpty() && st33.isEmpty() && st34.isEmpty() && st35.isEmpty() && st36.isEmpty() && st37.isEmpty() && st38.isEmpty() && st39.isEmpty() && st41.isEmpty() && st42.isEmpty() && st43.isEmpty() && st44.isEmpty()) {
+            Toast.makeText(this, "Please Enter any field", Toast.LENGTH_SHORT).show();
+
+        } else {
+            dataEntryLayout.setVisibility(View.GONE);
+            head.setText("Results".toUpperCase());
+            calculate1();
 //        calculate2();
 //        calculate3();
-        calculate4();
-        calculate5();
-        calculate6();
-        calculate7();
-        calculate8();
-        calculate9();
-        calculate10();
-        calculate11();
-        calculate12();
-        calculate13();
-        calculate14();
-        calculate15();
-        calculate16();
-        calculate17();
-        calculate18();
-        calculate19();
-        calculate20();
-        calculate21();
-        calculate22();
-        calculate23();
-        calculate24();
-        calculate25();
-        calculate26();
-        calculate27();
-        calculate28();
-        calculate29();
-        calculate30();
-        calculate31();
-        calculate32();
-        calculate33();
-        calculate34();
-        calculate35();
-        calculate36();
-        calculate37();
-        calculate38();
-        calculate39();
-        calculate40();
-        calculate41();
-        calculate42();
-        calculate43();
-        calculate44();
-        if(count>0)
-        {
-            summary.setVisibility(View.VISIBLE);
-            summary.setText("SUMMARY:Based on the above parameters entered, Your water is unfit for drinking");
-            causeText.setVisibility(View.VISIBLE);
+            calculate4();
+            calculate5();
+            calculate6();
+            calculate7();
+            calculate8();
+            calculate9();
+            calculate10();
+            calculate11();
+            calculate12();
+            calculate13();
+            calculate14();
+            calculate15();
+            calculate16();
+            calculate17();
+            calculate18();
+            calculate19();
+            calculate20();
+            calculate21();
+            calculate22();
+            calculate23();
+            calculate24();
+            calculate25();
+            calculate26();
+            calculate27();
+            calculate28();
+            calculate29();
+            calculate30();
+            calculate31();
+            calculate32();
+            calculate33();
+            calculate34();
+            calculate35();
+            calculate36();
+            calculate37();
+            calculate38();
+            calculate39();
+            calculate40();
+            calculate41();
+            calculate42();
+            calculate43();
+            calculate44();
+            if (count > 0) {
+                summary.setVisibility(View.VISIBLE);
+                summary.setText("SUMMARY:Based on the above parameters entered, Your water is unfit for drinking");
+                causeText.setVisibility(View.VISIBLE);
 
-        }
-        else
-        {
-            summary.setVisibility(View.VISIBLE);
-            summary.setText("SUMMARY:Based on the above parameters entered Your water is Safe for drinking");
+            } else {
+                summary.setVisibility(View.VISIBLE);
+                summary.setText("SUMMARY:Based on the above parameters entered Your water is Safe for drinking");
+            }
         }
     }
-
 
 
     public void calculate1() {
@@ -500,7 +502,7 @@ public class Problem3 extends AppCompatActivity {
         if (!st8.isEmpty()) {
             float i = Float.parseFloat(st8);
 
-            if (i >= 200 && i <= 600) {
+            if (i>= 200 && i<= 600) {
                 list.add(
                         new ListModel(
 

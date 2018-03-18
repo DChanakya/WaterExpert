@@ -8,10 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 public class Problem1 extends AppCompatActivity {
@@ -23,6 +25,7 @@ public class Problem1 extends AppCompatActivity {
     LinearLayout dataEntryLayout, ll1, ll2, ll3, ll4, ll5, ll6, ll7, ll8, ll9, ll10, ll11, ll12, ll13, ll14, ll15, ll16, ll17, ll18, ll19, ll20, ll21, ll22, ll23, ll24, ll25, ll26, ll27, ll28, ll29, ll30, ll31, ll32, ll33, ll34, ll35, ll36, ll37, ll38, ll39, ll40, ll41, ll42, ll43, ll44;
     Spinner t2,t3;
     int st2,st3;
+    int count;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problem1);
@@ -37,6 +40,7 @@ public class Problem1 extends AppCompatActivity {
                 mp.setLooping(true);
             }
         });
+        count=0;
     }
 public void back(View v)
 {
@@ -228,56 +232,69 @@ public void back(View v)
     }
 
     public void submitted1(View v) {
+
+        if(count==1) {
+           startActivity(new Intent(this,Problem1.class));
+        }
         progressDialog = ProgressDialog.show(this, "Processing", "This might take a few seconds...");
         read();
-        dataEntryLayout.setVisibility(View.GONE);
-        head.setText("Results".toUpperCase());
-        calculate1();
-        //calculate2();
-        //calculate3();
-        calculate4();
-        calculate5();
-        calculate6();
-        calculate7();
-        calculate8();
-        calculate9();
-        calculate10();
-        calculate11();
-        calculate12();
-        calculate13();
-        calculate14();
-        calculate15();
-        calculate16();
-        calculate17();
-        calculate18();
-        calculate19();
-        calculate20();
-        calculate21();
-        calculate22();
-        calculate23();
-        calculate24();
-        calculate25();
-        calculate26();
-        calculate27();
-        calculate28();
-        calculate29();
-        calculate30();
-        calculate31();
-        calculate32();
-        calculate33();
-        calculate34();
-        calculate35();
-        calculate36();
-        calculate37();
-        calculate38();
-        calculate39();
-//        calculate40();
-        calculate41();
-        calculate42();
-        calculate43();
-        calculate44();
-        progressDialog.dismiss();
+        if(st1.isEmpty()&&st4.isEmpty()&&st5.isEmpty()&&st6.isEmpty()&&st8.isEmpty()&&st7.isEmpty()&&st9.isEmpty()&&st10.isEmpty()&&st11.isEmpty()&&st12.isEmpty()&&st13.isEmpty()&&st14.isEmpty()&&st15.isEmpty()&&st16.isEmpty()&&st17.isEmpty()&&st18.isEmpty()&&st19.isEmpty()&&st20.isEmpty()&&st21.isEmpty()&&st22.isEmpty()&&st23.isEmpty()&&st24.isEmpty()&&st25.isEmpty()&&st26.isEmpty()&&st27.isEmpty()&&st28.isEmpty()&&st29.isEmpty()&&st30.isEmpty()&&st31.isEmpty()&&st32.isEmpty()&&st33.isEmpty()&&st34.isEmpty()&&st35.isEmpty()&&st36.isEmpty()&&st37.isEmpty()&&st38.isEmpty()&&st39.isEmpty()&&st41.isEmpty()&&st42.isEmpty()&&st43.isEmpty()&&st44.isEmpty()) {
+            Toast.makeText(this, "Please Enter any field", Toast.LENGTH_SHORT).show();
+            progressDialog.dismiss();
 
+        }
+        else {
+            Button sub = (Button) findViewById(R.id.subButton);
+            sub.setText("back");
+            count=count+1;
+            dataEntryLayout.setVisibility(View.GONE);
+            head.setText("Results".toUpperCase());
+            calculate1();
+            //calculate2();
+            //calculate3();
+            calculate4();
+            calculate5();
+            calculate6();
+            calculate7();
+            calculate8();
+            calculate9();
+            calculate10();
+            calculate11();
+            calculate12();
+            calculate13();
+            calculate14();
+            calculate15();
+            calculate16();
+            calculate17();
+            calculate18();
+            calculate19();
+            calculate20();
+            calculate21();
+            calculate22();
+            calculate23();
+            calculate24();
+            calculate25();
+            calculate26();
+            calculate27();
+            calculate28();
+            calculate29();
+            calculate30();
+            calculate31();
+            calculate32();
+            calculate33();
+            calculate34();
+            calculate35();
+            calculate36();
+            calculate37();
+            calculate38();
+            calculate39();
+//        calculate40();
+            calculate41();
+            calculate42();
+            calculate43();
+            calculate44();
+            progressDialog.dismiss();
+        }
     }
 
     public void calculate1() {

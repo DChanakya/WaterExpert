@@ -9,21 +9,23 @@
         android:roundIcon="@drawable/logone"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".Problem2" />
         <activity android:name=".Problem1" />
         <activity android:name=".Problem1Result" />
         <activity android:name=".Problem4" />
         <activity android:name=".Problem3" />
         <activity android:name=".Problem3KnowMore" />
-        <activity android:name=".FirstPage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".FirstPage"></activity>
+        <activity android:name=".SecondPage" />
+        <activity android:name=".SplashScreen">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".SecondPage"></activity>
+        <activity android:name=".ChoiceScreen"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
     </application>
 
 </manifest>

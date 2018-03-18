@@ -72,49 +72,7 @@
                 </LinearLayout>
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="40dp"
-                    android:paddingBottom="40dp">
-                    <android.support.v4.widget.Space
-                        android:layout_width="10dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
 
-                    <Button
-
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Back to home"
-                        android:onClick="back"
-                        android:padding="10dp" />
-
-                    <android.support.v4.widget.Space
-                        android:layout_width="10dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
-                    <android.support.v4.widget.Space
-                        android:layout_width="10dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
-
-                    <Button
-
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/submit"
-                        android:onClick="submitted4"
-                        android:padding="10dp" />
-
-                    <android.support.v4.widget.Space
-                        android:layout_width="10dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
-                </LinearLayout>
 
             </LinearLayout>
 
@@ -146,7 +104,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="300dp"
                     android:id="@+id/problem4Image"
-                    android:src="@drawable/color"
                     android:layout_weight="1"
                     android:scaleType="matrix"
                     />
@@ -222,7 +179,51 @@
                     android:layout_weight="1"
                     />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="40dp"
+                android:paddingBottom="40dp">
+                <android.support.v4.widget.Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
+                <Button
+
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Home"
+                    android:onClick="back"
+                    android:padding="10dp" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <android.support.v4.widget.Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/subButton"
+
+                    android:text="@string/submit"
+                    android:onClick="submitted4"
+                    android:padding="10dp" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

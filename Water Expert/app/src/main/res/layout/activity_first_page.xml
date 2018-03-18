@@ -76,7 +76,7 @@
             android:padding="15dp"
             android:onClick="mainProblem"
             android:id="@+id/appDevelopers111"
-            android:text="Proceed"
+            android:text="Back"
             android:textSize="18sp" />
         </LinearLayout>
         <android.support.v4.widget.Space

@@ -17,7 +17,7 @@ public class SecondPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_page);
         cont = (TextView) findViewById(R.id.contentText);
-        cont.setText(Html.fromHtml("<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: 'times new roman', times;\"><em><strong>The Water Expert system is Very Useful to know the Details, Limits and Their Effects of any Water Quality Parameter and Explore Different Treatment Methods to remove excess parameters. It is also Useful to Trace Out the Clear Discription of Water Quality and its Ranking so that the People can know whether the Water is Safe for Drinking or Not.</strong></em></span></p>"));
+        cont.setText(Html.fromHtml("<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: 'times new roman', times;\"><em><strong>Is the water you drink everyday is safe ?? We help you deliver the results based on drinking water parameters which can be given based on your choice. This app uses its 4 categories inputs to provide you the accurate results on your water quality. Your safety is our Priority..</strong></em></span></p>"));
         VideoView video = (VideoView) findViewById(R.id.problem1_video);
         String path = "android.resource://" + getPackageName() + "/" + R.raw.video;
         video.setVideoURI(Uri.parse(path));
@@ -35,7 +35,7 @@ public class SecondPage extends AppCompatActivity {
         startActivity(i);
     }
     public void back(View v){
-        startActivity(new Intent(this,FirstPage.class));
+        startActivity(new Intent(this,ChoiceScreen.class));
 
     }
 
